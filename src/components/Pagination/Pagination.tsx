@@ -81,7 +81,7 @@ const Pages: FC<{
       {/* Next */}
       <Tab
         title=">"
-        path={mkUrl(currentPage + 1)}
+        path={mkUrl(Math.min(currentPage + 1, pages[pages.length - 1]))}
         isDisabled={currentPage === total || disabled}
         LinkComponent={LinkComponent}
       />
@@ -100,7 +100,7 @@ const Pagination: FC<{
   return (
     <div className={`w-full flex justify-between items-center`}>
       <div className="text-primary">
-        Showing {data?.showingFrom} to {data?.showingTo} of {data?.totalContent}
+        Showing {data?.showingFrom} to {data?.showingTo} of {data?.totalContent}{" "}
         entries
       </div>
       <Pages
