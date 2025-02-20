@@ -105,6 +105,8 @@ const FilterBarWrapper: FC<TProps> = ({
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleSearch();
+    setIsFilterOpen(false);
+    setIsFocus(false);
   };
 
   return (
@@ -162,9 +164,9 @@ const FilterBarWrapper: FC<TProps> = ({
       {/* Filter Section */}
       <div
         className={cn(
-          "w-full bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] absolute top-8 left-0 z-30 max-h-0 overflow-hidden transition-[max-height]",
+          "w-full bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] absolute top-8 left-0 z-30 max-h-0 overflow-hidden transition-[max-height] ",
           {
-            "max-h-[500px] overflow-hidden": isOpen,
+            "max-h-[500px] overflow-hidden rounded-bl-10 rounded-br-10": isOpen,
           }
         )}
       >
