@@ -3,10 +3,11 @@ import { cn } from "../../lib/utils/cn";
 import { iconFilter } from "./icons/Icons";
 
 type TProps = {
-  formData: any;
+  formData: Record<string, any>;
+  onSearch: (search: string) => void;
+  children: React.ReactNode;
   placeholder?: string;
   disabled?: boolean;
-  children: React.ReactNode;
 };
 
 const getStrValue = (filter: Record<string, any>) => {
@@ -39,6 +40,7 @@ const FilterBarWrapper: FC<TProps> = ({
   formData,
   disabled,
   placeholder = "Search anything...",
+  onSearch,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   // get queries
@@ -67,13 +69,6 @@ const FilterBarWrapper: FC<TProps> = ({
     setFilters(properties);
   }, [window.location.search]);
 
-  // const handleInputChange = (ev: TInputChangeEvent) => {
-  //   const { name, value } = ev.target;
-  //   if (name) {
-  //     setFilters((prev: Record<string, any>) => ({ ...prev, [name]: value }));
-  //   }
-  // };
-
   // outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -98,10 +93,19 @@ const FilterBarWrapper: FC<TProps> = ({
 
   const isOpen = isFilterOpen || isFocus;
 
-  // const closeFilterBar = () => {
-  //   setIsFilterOpen(false);
-  //   setIsFocus(false);
-  // };
+  const handleSearch = () => {
+    // Build the query string
+    const queryString = Object.entries(formData)
+      .filter(([_, value]) => value) // Filter out empty values
+      .map(([key, value]) => `${key}=${value}`)
+      .join("&");
+    onSearch(`?${queryString}`);
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleSearch();
+  };
 
   return (
     <div
@@ -160,11 +164,25 @@ const FilterBarWrapper: FC<TProps> = ({
         className={cn(
           "w-full bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] absolute top-8 left-0 z-30 max-h-0 overflow-hidden transition-[max-height]",
           {
-            "max-h-[500px]": isOpen,
+            "max-h-[500px] overflow-hidden": isOpen,
           }
         )}
       >
-        {children}
+        <form
+          onSubmit={onSubmit}
+          className="pt-8 px-4 pb-4 space-y-[10px] border border-secondary-100 border-t-transparent rounded-bl-10 rounded-br-10"
+        >
+          {children}
+          <div className="flex justify-end">
+            <button
+              className={cn(
+                "relative px-3 py-1 text-base font-medium rounded-[8px] transition-colors disabled:bg-primary-100 disabled:pointer-events-none disabled:text-primary-500 w-36 py-2 bg-[#AE00B9] text-white"
+              )}
+            >
+              Search
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
