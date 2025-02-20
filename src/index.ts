@@ -1,1 +1,2 @@
-export {default as Pagination} from "./components/Pagination/Pagination";
+export {default as Pagination} from "./components/pagination/Pagination";
+export {default as FilterBarWrapper} from "./components/filter-wrapper/FilterBarWrapper";
