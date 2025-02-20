@@ -55,8 +55,6 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "dayjs": "^1.11.13",
-    "react-datepicker": "^8.1.0",
     "tailwind-merge": "^3.0.1"
   }
 }
