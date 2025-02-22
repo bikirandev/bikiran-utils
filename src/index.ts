@@ -7,3 +7,4 @@ export {default as CustomSidebar} from "./components/custom-sidebar/CustomSideba
 export {default as PageLoading} from "./components/pageLoading/PageLoading";
 export {default as LoadingComp} from "./components/loading-comp/LoadingComp";
 export {default as CookiesAcceptPopup} from "./components/cookie-accept-popup/CookiesAcceptPopup";
+export {default as ProfileManage} from "./components/Profile/ProfileManage";
