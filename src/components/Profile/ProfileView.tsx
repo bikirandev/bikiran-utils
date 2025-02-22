@@ -37,11 +37,11 @@ const ProfileView: React.FC<TProfileView> = ({
         >
           <ImageComponent
             src={auth.currentUser.photoUrl}
-            alt="User Avatar"
+            alt="user_avatar"
             width={0}
             height={0}
             size="100vw"
-            className="rounded-full"
+            className="rounded-full size-full"
           />
 
           {/* Notification Bullet point */}
