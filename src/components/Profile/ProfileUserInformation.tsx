@@ -17,10 +17,10 @@ const ProfileUserInformation: FC<{
           <ImageComponent
             src={auth.currentUser.photoUrl}
             alt="User Avatar"
-            width={0}
-            height={0}
-            size="100vw"
-            className="rounded-full"
+            width={100}
+            height={100}
+            sizes="100vw"
+            className="rounded-full size-full"
           />
         </div>
 

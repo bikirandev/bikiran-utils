@@ -38,9 +38,9 @@ const ProfileView: React.FC<TProfileView> = ({
           <ImageComponent
             src={auth.currentUser.photoUrl}
             alt="user_avatar"
-            width={0}
-            height={0}
-            size="100vw"
+            width={100}
+            height={100}
+            sizes="100vw"
             className="rounded-full size-full"
           />
 

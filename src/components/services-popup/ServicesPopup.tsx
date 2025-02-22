@@ -36,8 +36,8 @@ const ButtonClose: FC<TBtnProps> = ({ onClick, ImageComponent }) => {
       <ImageComponent
         src={serviceIcons.iconCross}
         alt="cross"
-        width={0}
-        height={0}
+        width={100}
+        height={100}
         sizes="100vw"
         className="w-full h-auto rounded-full"
       />
