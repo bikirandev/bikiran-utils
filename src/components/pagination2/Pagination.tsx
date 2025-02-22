@@ -20,16 +20,12 @@ const Tab: FC<{
   return (
     <LinkComponent
       href={path}
-      className={cn({ "grayscale pointer-events-none": isDisabled })}
+      className={cn(
+        "px-2.5 min-h-8 text-sm flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5",
+        { "grayscale pointer-events-none": isDisabled }
+      )}
     >
-      <div
-        className={cn(
-          "px-2.5 min-h-8 text-sm flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5",
-          { "grayscale pointer-events-none": isDisabled }
-        )}
-      >
-        {title}
-      </div>
+      {title}
     </LinkComponent>
   );
 };
@@ -40,7 +36,7 @@ const Pages: FC<{
   currentPage: number;
   mkUrl: (page: number) => string;
   disabled: boolean;
-  LinkComponent: FC<{ href: string; children: React.ReactNode }>;
+  LinkComponent: any;
 }> = ({ pages, total, disabled, LinkComponent, currentPage, mkUrl }) => {
   // const [show, setShow] = useState<boolean>(false);
 
@@ -63,20 +59,20 @@ const Pages: FC<{
         }
 
         return (
-          <LinkComponent key={number} href={mkUrl(number)}>
-            <div
-              className={cn(
-                "w-10 min-h-8 flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5 ",
-                {
-                  "!bg-primary-100 !text-primary-300 pointer-events-none":
-                    disabled,
-                  "!bg-secondary text-white":
-                    !disabled && (currentPage || 1) === number,
-                }
-              )}
-            >
-              {number}
-            </div>
+          <LinkComponent
+            key={number}
+            href={mkUrl(number)}
+            className={cn(
+              "w-10 min-h-8 flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5 ",
+              {
+                "!bg-primary-100 !text-primary-300 pointer-events-none":
+                  disabled,
+                "!bg-secondary text-white":
+                  !disabled && (currentPage || 1) === number,
+              }
+            )}
+          >
+            {number}
           </LinkComponent>
         );
       })}
