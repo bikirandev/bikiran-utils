@@ -15,10 +15,13 @@ const Tab: FC<{
   path: string;
   title: string;
   isDisabled: boolean;
-  LinkComponent: FC<{ href: string; children: React.ReactNode }>;
+  LinkComponent: any;
 }> = ({ path, title, isDisabled, LinkComponent }) => {
   return (
-    <LinkComponent href={path}>
+    <LinkComponent
+      href={path}
+      className={cn({ "grayscale pointer-events-none": isDisabled })}
+    >
       <div
         className={cn(
           "px-2.5 min-h-8 text-sm flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5",
