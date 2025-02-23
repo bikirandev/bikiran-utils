@@ -3,6 +3,7 @@ import { FC, useRef, useState } from "react";
 import { TAuthInfo } from "../Profile/authTypes";
 import { cn } from "../../lib/utils/cn";
 import ServicesPopup from "../services-popup/ServicesPopup";
+import { headerIcons } from "./icons/icons";
 
 type TProps = {
   authInfo: TAuthInfo;
@@ -38,7 +39,7 @@ const HeaderServiceBtnComp: FC<TProps> = ({
       onClick={() => handleShow()}
     >
       <ImageComponent
-        src={icons.iconAllService}
+        src={headerIcons.iconAllService}
         alt="all service"
         width={0}
         height={0}
