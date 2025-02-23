@@ -9,15 +9,17 @@ type TMenu = {
   listArr: TNavMenu[];
   closeMenu: () => void;
   ImageComponent: any;
+  routerFn: () => any;
 };
 
 const SidebarMenuRow: React.FC<TMenu> = ({
   listArr,
   closeMenu,
   ImageComponent,
+  routerFn,
 }) => {
   const [openL1, setOpenL1] = useState(0);
-  // const router = useRouter();
+  const router = routerFn();
 
   const onMenuClick = (menu: any) => {
     if (menu?.subMenu?.length > 0) {
@@ -29,7 +31,7 @@ const SidebarMenuRow: React.FC<TMenu> = ({
 
       return;
     }
-    // router.push(menu?.path);
+    router.push(menu?.path);
     closeMenu();
   };
 

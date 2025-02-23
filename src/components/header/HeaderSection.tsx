@@ -9,13 +9,17 @@ import NavbarComp from "./NavbarComp";
 type THeaderProps = {
   className?: string;
   children?: ReactNode;
-  cartFn?: any;
+  cartFn?: () => {
+    cartItems: any[];
+    reloadCartData: () => void;
+  };
   removeProductFromCartFn?: (id: number) => void;
   ImageComponent: any;
   LinkComponent: any;
   authWrapper: any;
-  authFn: any;
-  templateFn: any;
+  authFn: () => any;
+  templateFn: () => any;
+  routerFn: () => any;
   pathname: string;
   applicationData: any;
   navLinks?: any;
@@ -41,6 +45,7 @@ const HeaderSection: FC<THeaderProps> = ({
   applicationData,
   removeProductFromCartFn,
   navLinks,
+  routerFn,
 }) => {
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0
@@ -68,6 +73,7 @@ const HeaderSection: FC<THeaderProps> = ({
               ImageComponent={ImageComponent}
               windowWidth={windowWidth}
               navLinks={navLinks}
+              routerFn={routerFn}
             />
             <HeaderLogoComp
               ImageComponent={ImageComponent}
@@ -90,7 +96,9 @@ const HeaderSection: FC<THeaderProps> = ({
           <Container className="h-full flex justify-end items-center w-auto xl:w-[300px] 2xl:w-[350px]">
             <HeaderLoginColumnComp
               authFn={authFn}
-              cartFn={cartFn}
+              cartFn={
+                cartFn || (() => ({ cartItems: [], reloadCartData: () => {} }))
+              }
               templateFn={templateFn}
               pathname={pathname}
               ImageComponent={ImageComponent}

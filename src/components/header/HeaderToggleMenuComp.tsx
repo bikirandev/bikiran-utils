@@ -8,7 +8,8 @@ const HeaderToggleMenuComp: FC<{
   LinkComponent: any;
   windowWidth: number;
   navLinks?: any;
-}> = ({ ImageComponent, windowWidth, navLinks, LinkComponent }) => {
+  routerFn: () => any;
+}> = ({ ImageComponent, windowWidth, navLinks, LinkComponent, routerFn }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const SIZE_LG = 991;
 
@@ -33,14 +34,16 @@ const HeaderToggleMenuComp: FC<{
           className="w-full h-auto"
         />
       </button>
-
-      <SidebarMenu
-        show={showSidebar}
-        closeMenu={() => setShowSidebar(false)}
-        ImageComponent={ImageComponent}
-        LinkComponent={LinkComponent}
-        navLinks={navLinks}
-      />
+      {navLinks && (
+        <SidebarMenu
+          show={showSidebar}
+          closeMenu={() => setShowSidebar(false)}
+          ImageComponent={ImageComponent}
+          LinkComponent={LinkComponent}
+          navLinks={navLinks}
+          routerFn={routerFn}
+        />
+      )}
     </>
   );
 };

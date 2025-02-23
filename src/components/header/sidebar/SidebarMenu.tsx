@@ -15,6 +15,7 @@ type TSidebar = {
   ImageComponent: any;
   LinkComponent: any;
   navLinks: any;
+  routerFn: () => any;
 };
 
 const SidebarMenu: React.FC<TSidebar> = ({
@@ -23,6 +24,7 @@ const SidebarMenu: React.FC<TSidebar> = ({
   ImageComponent,
   LinkComponent,
   navLinks,
+  routerFn,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -67,7 +69,12 @@ const SidebarMenu: React.FC<TSidebar> = ({
           />
         </button>
         <div className="h-[calc(100%_-_200px)] overflow-auto">
-          <SidebarMenuRow listArr={navLinks} closeMenu={closeMenu} ImageComponent={ImageComponent} />
+          <SidebarMenuRow
+            listArr={navLinks}
+            closeMenu={closeMenu}
+            ImageComponent={ImageComponent}
+            routerFn={routerFn}
+          />
         </div>
       </div>
     </div>
