@@ -8,6 +8,25 @@
 
 # IMPORTANT NOTE
 
+This package was specifically developed and tailored for our organization’s projects. It may not be particularly helpful for your needs, but you’re welcome to try it out. Just keep in mind that it could potentially break your project—or it might work exactly as intended.
+
+## 🎨 **Available Components**
+
+```tsx
+<Pagination  />
+<FilterBarWrapper />
+<ServicesPopup />
+<ButtonWrapper />
+<CurrencySelector />
+<CustomSidebar/>
+<PageLoading />
+<LoadingComp  />
+<CookiesAcceptPopup />
+<ProfileManage />
+<TooltipUserInfo />
+<UserInfoComp />
+```
+
 ## Pagination
 
 You need to write this code where you will use your pagination .This will Check query Params and create a new url . which is important for this component
@@ -29,18 +48,13 @@ const mkUrl = (number: number) => {
 
 ## Props
 
-| prop        | type                                           | description                                     | default value           | priority    |
-| ----------- | ---------------------------------------------- | ----------------------------------------------- | ----------------------- | ----------- |
-| data        | TPagination                                    | this is an object                               | {} as TPagination       | ✅Required  |
-| ----        | -----------                                    | -----------------                               | -----------------       | ----------- |
-| disabled    | boolean                                        | determine is that pagination is disabled or not | false                   | ❌Optional  |
-| ----------- | ---------------------------------------------- | ----------------------------------------------- | ----------------------- | ----------- |
-| currentPage | number                                         | Which page it is now                            | 0                       | ✅Required  |
-| ----------- | ---------------------------------------------- | ----------------------------------------------- | ----------------------- | ----------- |
-| mkUrl       | (page: number) => string                       | add query params                                | (page:number) => string | ✅Required  |
-| ----------- | ---------------------------------------------- | ----------------------------------------------- | ----------------------- | ----------- |
-| link        | FC<{ href: string; children: React.ReactNode } | Pass the link tag here                          | null                    | ✅Required  |
-| ----------- | ---------------------------------------------- | ----------------------------------------------- | ----------------------- | ----------- |
+| prop        | type                                           | description                                     | default value           | priority   |
+| ----------- | ---------------------------------------------- | ----------------------------------------------- | ----------------------- | ---------- |
+| data        | TPagination                                    | this is an object                               | {} as TPagination       | ✅Required |
+| disabled    | boolean                                        | determine is that pagination is disabled or not | false                   | ❌Optional |
+| currentPage | number                                         | Which page it is now                            | 0                       | ✅Required |
+| mkUrl       | (page: number) => string                       | add query params                                | (page:number) => string | ✅Required |
+| link        | FC<{ href: string; children: React.ReactNode } | Pass the link tag here                          | null                    | ✅Required |
 
 ## Usage
 
@@ -70,3 +84,19 @@ const MyPagination = ({ data }) => {
   );
 };
 ```
+
+## 🔗 **More Details**
+
+For more details, visit the [GitHub repository](https://github.com/bikirandev/7502NPM-Bikiran-Utils/tree/main/documents).
+
+---
+
+## 🔗 **License**
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 **Author**
+
+Created by [bikiran.com](https://bikiran.com/). Feel free to contribute!
