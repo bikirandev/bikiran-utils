@@ -9,7 +9,7 @@ const SelectorMainComp: FC<{
 }> = ({ setShow, activeProject, ImageComponent }) => {
   return (
     <div
-      className="flex items-center gap-2.5 size-14  md:size-full px-2.5 py-[3px] rounded-10 bg-primary-50 transition-colors overflow-hidden"
+      className="flex items-center gap-2.5 size-14  md:size-full px-2.5 py-[3px] rounded-10 bg-primary-50 transition-colors overflow-hidden cursor-pointer"
       onClick={() => setShow((prev) => !prev)}
     >
       <div className="w-full max-w-10 h-full flex items-center">

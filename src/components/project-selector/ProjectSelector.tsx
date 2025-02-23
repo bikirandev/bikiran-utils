@@ -62,7 +62,7 @@ const ProjectSelector: FC<TProps> = ({
     return <ProjectSelectorSkeleton />;
   }
   return (
-    <div ref={ref} className="relative flex justify-center">
+    <div ref={ref} className="relative flex justify-center ">
       <SelectorMainComp
         setShow={setShow}
         activeProject={activeProject}

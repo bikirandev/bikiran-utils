@@ -10,3 +10,4 @@ export {default as CookiesAcceptPopup} from "./components/cookie-accept-popup/Co
 export {default as ProfileManage} from "./components/Profile/ProfileManage";
 export {default as TooltipUserInfo} from "./components/user-info/TooltipUserInfo";
 export {default as UserInfoComp} from "./components/user-info/UserInfoComp";
+export {default as ProjectSelector} from "./components/project-selector/ProjectSelector";
