@@ -1,19 +1,13 @@
-import { FC, useEffect, useRef } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { cn } from "../../lib/utils/cn";
 
 type TProps = {
   user: any;
-  show: number | null;
-  setShow: (id: number | null) => void;
   ImageComponent: any;
 };
 
-const TooltipUserInfo: FC<TProps> = ({
-  user,
-  setShow,
-  show,
-  ImageComponent,
-}) => {
+const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
+  const [show, setShow] = useState<number | null>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
