@@ -13,10 +13,6 @@ type TProps = {
   selectProject: (project: TProject) => void;
   loading: boolean;
   ImageComponent: any;
-  useProject: () => {
-    selectService: (id: number) => void;
-    selectedService: number;
-  };
 };
 
 const ProjectSelector: FC<TProps> = ({
@@ -25,7 +21,6 @@ const ProjectSelector: FC<TProps> = ({
   selectProject,
   loading,
   ImageComponent,
-  useProject,
 }) => {
   const [show, setShow] = useState<boolean>(false);
   const [currentHeight, setCurrentHeight] = useState<number>(0);
@@ -76,7 +71,6 @@ const ProjectSelector: FC<TProps> = ({
         activeProject={activeProject}
         selectProject={selectProject}
         ImageComponent={ImageComponent}
-        useProject={useProject}
       />
     </div>
   );

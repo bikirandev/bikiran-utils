@@ -55,10 +55,6 @@ const ProjectListPopup: FC<{
   selectProject: (project: TProject) => void;
   activeProject: TProject;
   ImageComponent: any;
-  useProject: () => {
-    selectService: (id: number) => void;
-    selectedService: number;
-  };
 }> = ({
   setShow,
   show,
@@ -67,7 +63,6 @@ const ProjectListPopup: FC<{
   activeProject,
   selectProject,
   ImageComponent,
-  useProject,
 }) => {
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0
@@ -104,7 +99,6 @@ const ProjectListPopup: FC<{
         selectProject={selectProject}
         activeProject={activeProject}
         ImageComponent={ImageComponent}
-        useProject={useProject}
       />
     </div>
   );

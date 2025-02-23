@@ -47,17 +47,7 @@ const ProjectListBody: FC<{
   activeProject: TProject;
   selectProject: (project: TProject) => void;
   ImageComponent: any;
-  useProject: () => {
-    selectService: (id: number) => void;
-    selectedService: number;
-  };
-}> = ({
-  projectData,
-  activeProject,
-  selectProject,
-  ImageComponent,
-  useProject,
-}) => {
+}> = ({ projectData, activeProject, selectProject, ImageComponent }) => {
   return (
     <div className="size-full flex items-stretch gap.10 px-2.5 py-1.5 h-[calc(100%_-_96px)] md:h-[calc(100%_-_50px)] divide-x-2 divide-primary-200">
       <div className="w-[185px] pr-2.5 h-full">
@@ -74,7 +64,7 @@ const ProjectListBody: FC<{
         </ul>
       </div>
       <div className="flex-1 px-2.5">
-        <ProjectServices useProject={useProject} />
+        <ProjectServices />
       </div>
     </div>
   );
