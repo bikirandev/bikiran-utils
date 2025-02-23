@@ -2,36 +2,42 @@
 import { useState, useRef, useEffect, FC } from "react";
 import ProfileView from "./ProfileView";
 import ProfileMenuPopup from "./ProfileMenuPopup";
-import { TAuthInfo } from "./authTypes";
 
 const ProfileManage: FC<{
-  auth: TAuthInfo;
-  loginUrl: string;
-  logout: () => void;
   LinkComponent: any;
   AuthCompWrapper: any;
   ImageComponent: any;
-  SIZE_SM: number;
-  useLayout: () => { windowWidth: number };
-  useRouter: () => { push: (arg0: string) => void };
-}> = ({
-  auth,
-  logout,
-  loginUrl,
-  LinkComponent,
-  AuthCompWrapper,
-  ImageComponent,
-  SIZE_SM,
-  useLayout,
-  useRouter,
-}) => {
+  authFn: () => {
+    authInfo: any;
+    logOut: () => void;
+    loginUrl: string;
+  };
+}> = ({ LinkComponent, AuthCompWrapper, ImageComponent, authFn }) => {
   const bodyRef = useRef<HTMLDivElement | null>(null);
-
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const { authInfo, logOut, loginUrl } = authFn();
+  const [windowWidth, setWindowWidth] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+  const SIZE_SM = 576;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const updateSize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", updateSize);
+
+    return () => {
+      window.removeEventListener("resize", updateSize);
+    };
+  }, []);
 
   const handleLogout = () => {
     // -- handler for logout
-    logout();
+    logOut();
     // -- close the popup
     setShowMenu(false);
   };
@@ -53,21 +59,20 @@ const ProfileManage: FC<{
     <div className="profile-manage relative z-50" ref={bodyRef}>
       <div className="flex items-center gap-2">
         <ProfileView
-          auth={auth}
+          auth={authInfo}
           onClick={() => setShowMenu((prev) => !prev)}
           loginUrl={loginUrl}
           LinkComponent={LinkComponent}
           AuthCompWrapper={AuthCompWrapper}
           ImageComponent={ImageComponent}
           SIZE_SM={SIZE_SM}
-          useLayout={useLayout}
-          useRouter={useRouter}
+          windowWidth={windowWidth}
         />
       </div>
 
       <ProfileMenuPopup
         show={showMenu}
-        authInfo={auth}
+        authInfo={authInfo}
         logout={handleLogout}
         closeClick={() => setShowMenu((prev) => !prev)}
         LinkComponent={LinkComponent}

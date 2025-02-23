@@ -10,8 +10,7 @@ type TProfileView = {
   ImageComponent: any;
   LinkComponent: any;
   AuthCompWrapper: any;
-  useLayout: () => { windowWidth: number };
-  useRouter: () => { push: (arg0: string) => void };
+  windowWidth: number;
   SIZE_SM: number;
 };
 
@@ -22,8 +21,7 @@ const ProfileView: React.FC<TProfileView> = ({
   LinkComponent,
   ImageComponent,
   AuthCompWrapper,
-  useLayout,
-  useRouter,
+  windowWidth,
   SIZE_SM,
 }) => {
   return (
@@ -50,8 +48,8 @@ const ProfileView: React.FC<TProfileView> = ({
         <LoginBtn
           loginUrl={loginUrl}
           SIZE_SM={SIZE_SM}
-          useLayout={useLayout}
-          useRouter={useRouter}
+          windowWidth={windowWidth}
+          LinkComponent={LinkComponent}
         />
         <LinkComponent href="#" type="button" className="size-10">
           <LoadingRoundDottedIcon />

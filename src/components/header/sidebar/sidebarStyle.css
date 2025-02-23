@@ -1,0 +1,32 @@
+.sidebar_menu_wrapper {
+  @apply fixed top-0 -left-full z-[60] size-full bg-[#20202082] transition-all duration-300;
+}
+
+.sidebar_menu_wrapper.active {
+  @apply left-0;
+}
+
+.sidebar_menu {
+  @apply w-[300px] h-full bg-white relative;
+}
+ul.sidebar_menu_submenu {
+  @apply pl-12 overflow-hidden transition-all duration-200;
+}
+ul.sidebar_menu_submenu li {
+  @apply flex items-center h-[42px] max-h-0 opacity-0 overflow-hidden transition-all duration-200;
+}
+ul.sidebar_menu_submenu.active li {
+  @apply max-h-[42px] opacity-100 overflow-hidden transition-all duration-200;
+}
+
+.sidebar_user_info {
+  @apply flex items-center gap-4;
+}
+
+.sidebar_user_info .user_name {
+  @apply text-primary text-base font-bold;
+}
+
+.sidebar_user_info .user_email {
+  @apply text-primary-300 text-xs font-medium;
+}

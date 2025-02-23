@@ -5,31 +5,29 @@ import { LoginFill } from "./icons";
 const LoginBtn: FC<{
   loginUrl: string;
   SIZE_SM: number;
-  useLayout: () => { windowWidth: number };
-  useRouter: () => { push: (arg0: string) => void };
-}> = ({ loginUrl = "", useLayout, SIZE_SM, useRouter }) => {
-  const { windowWidth } = useLayout();
-  const router = useRouter();
+  windowWidth: number;
+  LinkComponent: any;
+}> = ({ loginUrl = "", windowWidth, SIZE_SM, LinkComponent }) => {
   if (!windowWidth) return null;
   if (windowWidth && windowWidth < SIZE_SM) {
     return (
-      <button
+      <LinkComponent
         type="button"
-        className="block size-7"
-        onClick={() => router.push(loginUrl)}
+        className="block size-7 cursor-pointer"
+        href={loginUrl}
       >
         <LoginFill />
-      </button>
+      </LinkComponent>
     );
   }
   return (
-    <button
+    <LinkComponent
       type="button"
-      onClick={() => router.push(loginUrl)}
+      href={loginUrl}
       className="bg-secondary-100 text-secondary rounded-lg leading-6 text-base font-normal p-2 w-24 hover:text-white hover:bg-secondary transition"
     >
       Login
-    </button>
+    </LinkComponent>
   );
 };
 
