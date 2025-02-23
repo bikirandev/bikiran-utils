@@ -82,6 +82,7 @@ const SidebarMenuRow: React.FC<TMenu> = ({
             ImageComponent={ImageComponent}
             subMenu={menu?.subMenu}
             closeMenu={closeMenu}
+            routerFn={routerFn}
           />
         </li>
       ))}

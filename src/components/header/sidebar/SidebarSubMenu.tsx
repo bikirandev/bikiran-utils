@@ -7,6 +7,7 @@ type TProps = {
   subMenu: any;
   closeMenu: any;
   ImageComponent: any;
+  routerFn: () => any;
 };
 
 const SidebarSubMenu: React.FC<TProps> = ({
@@ -14,10 +15,11 @@ const SidebarSubMenu: React.FC<TProps> = ({
   subMenu,
   closeMenu,
   ImageComponent,
+  routerFn,
 }) => {
-  // const router = useRouter();
+  const router = routerFn();
   const onSubMenuClick = (menu: any) => {
-    // router.push(menu?.path);
+    router.push(menu?.path);
     closeMenu();
   };
   return (
