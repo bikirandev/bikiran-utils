@@ -86,7 +86,7 @@ const ProjectListPopup: FC<{
 
   return (
     <div
-      className="fixed md:absolute left-0 z-[99999] size-full md:size-auto bg-white border md:rounded-10 md:max-h-[400px] md:min-h-[300px] md:flex flex-col overflow-auto"
+      className="fixed md:absolute left-0 z-[99999] size-full md:size-auto bg-white border md:rounded-10 md:max-h-[400px] min-h-[300px] md:flex flex-col overflow-auto"
       style={{
         // Ensure correct top position based on window width
         top: windowWidth > 768 ? top : 0,
