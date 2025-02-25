@@ -49,7 +49,7 @@ const ProjectListBody: FC<{
   ImageComponent: any;
 }> = ({ projectData, activeProject, selectProject, ImageComponent }) => {
   return (
-    <div className="size-full flex items-stretch gap.10 px-2.5 py-1.5 h-[calc(100%_-_96px)] md:h-[calc(100%_-_50px)] divide-x-2 divide-primary-200">
+    <div className="size-full flex-grow flex items-stretch gap.10 px-2.5 py-1.5 h-[calc(100%_-_96px)] md:h-[calc(100%_-_50px)] divide-x-2 divide-primary-200">
       <div className="w-[185px] pr-2.5 h-full">
         <ul className="overflow-auto h-full flex flex-col gap-1">
           {projectData?.map((item: TProject) => (
