@@ -175,7 +175,7 @@ const FilterBarWrapper: FC<TProps> = ({
       >
         <form
           onSubmit={onSubmit}
-          className="pt-8 px-4 pb-4 space-y-[10px] border border-secondary-100 border-t-transparent rounded-bl-10 rounded-br-10"
+          className="pt-8 px-4 pb-4 space-y-[12px] border border-secondary-100 border-t-transparent rounded-bl-10 rounded-br-10"
         >
           {children}
           <div className="flex justify-end">
