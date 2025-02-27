@@ -128,7 +128,6 @@ const FilterBarWrapper: FC<TProps> = ({
           "flex items-center h-10 overflow-hidden border border-secondary-100 rounded-10 relative z-50",
           {
             "rounded-bl-none rounded-br-none ": isOpen,
-            [`${overflow}`]: isOpen,
           }
         )}
       >
@@ -169,7 +168,8 @@ const FilterBarWrapper: FC<TProps> = ({
         className={cn(
           "w-full bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] absolute top-8 left-0 z-30 max-h-0 overflow-hidden transition-[max-height] ",
           {
-            "max-h-[500px] overflow-hidden rounded-bl-10 rounded-br-10": isOpen,
+            "max-h-[500px] rounded-bl-10 rounded-br-10": isOpen,
+            [`${overflow}`]: isOpen,
           }
         )}
       >
