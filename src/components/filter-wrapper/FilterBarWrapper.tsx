@@ -8,6 +8,7 @@ type TProps = {
   children: React.ReactNode;
   placeholder?: string;
   disabled?: boolean;
+  overflow?: string;
 };
 
 const getStrValue = (filter: Record<string, any>) => {
@@ -41,6 +42,7 @@ const FilterBarWrapper: FC<TProps> = ({
   disabled,
   placeholder = "Search anything...",
   onSearch,
+  overflow,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   // get queries
@@ -125,7 +127,8 @@ const FilterBarWrapper: FC<TProps> = ({
         className={cn(
           "flex items-center h-10 overflow-hidden border border-secondary-100 rounded-10 relative z-50",
           {
-            "rounded-bl-none rounded-br-none": isOpen,
+            "rounded-bl-none rounded-br-none ": isOpen,
+            [`${overflow}`]: isOpen,
           }
         )}
       >
