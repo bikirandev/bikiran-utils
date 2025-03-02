@@ -27,9 +27,7 @@ const ProfileView: React.FC<TProfileView> = ({
   return (
     <div className="profile_view w-auto lg:w-full h-8 sm:h-10 flex items-center">
       <AuthCompWrapper auth={auth}>
-        <LinkComponent
-          href="#"
-          type="button"
+        <div
           className="size-8 sm:size-10 rounded-full border border-[#AE00B9] relative"
           onClick={onClick}
         >
@@ -44,7 +42,7 @@ const ProfileView: React.FC<TProfileView> = ({
 
           {/* Notification Bullet point */}
           {/* <span className="size-2 bg-warning rounded-full absolute top-0 right-0 " /> */}
-        </LinkComponent>
+        </div>
         <LoginBtn
           loginUrl={loginUrl}
           SIZE_SM={SIZE_SM}
