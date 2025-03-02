@@ -9,7 +9,6 @@ type TProps = {
 const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
   const [show, setShow] = useState<number | null>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -23,6 +22,8 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [setShow]);
+
+  if (user === null) return null;
 
   return (
     <div className="relative inline-block" ref={tooltipRef}>
