@@ -3,9 +3,9 @@ import { cn } from "../../lib/utils/cn";
 import { IconArrow, IconInfo } from "./icons";
 
 type TProps = {
-  children?: React.ReactNode;
   content: string;
   className?: string;
+  children?: React.ReactNode;
   align?: "left" | "right" | "top" | "bottom";
   fillColor?: string;
   borderColor?: string;
@@ -20,6 +20,8 @@ const InformationTooltip: FC<TProps> = ({
   borderColor,
 }) => {
   const positionStyles = {
+    backgroundColor: fillColor ? fillColor : "#FFF9DB",
+    borderColor: borderColor ? borderColor : "#FFE6BA",
     left:
       align === "right"
         ? "calc(100% + 24%)"
@@ -84,9 +86,7 @@ const InformationTooltip: FC<TProps> = ({
         className={cn(
           "absolute border text-sm bg-[#FFF9DB] border-[#FFE6BA] text-primary shadow-md rounded-15 w-56 px-4 py-3 hidden group-hover:block transition-all z-10",
           // animationClasses,
-          className,
-          fillColor ? `!bg-[${fillColor}]` : "",
-          borderColor ? `!border-[${borderColor}]` : ""
+          className
         )}
         style={positionStyles}
       >
