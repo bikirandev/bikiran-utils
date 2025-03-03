@@ -11,3 +11,4 @@ export {default as ProfileManage} from "./components/Profile/ProfileManage";
 export {default as TooltipUserInfo} from "./components/user-info/TooltipUserInfo";
 export {default as UserInfoComp} from "./components/user-info/UserInfoComp";
 export {default as ProjectSelector} from "./components/project-selector/ProjectSelector";
+export {default as InformationTooltip} from "./components/information-tooltip/InformationTooltip";
