@@ -11,14 +11,18 @@ const UserInfoComp: FC<{
     <div className="flex justify-between items-center">
       <div className="flex items-center gap-[14px]">
         <div className="size-10 overflow-hidden">
-          <ImageComponent
-            src={photoUrl || IconUser()}
-            alt="user"
-            width={0}
-            height={0}
-            sizes="100vh"
-            className="rounded-full size-10"
-          />
+          {photoUrl ? (
+            <ImageComponent
+              src={photoUrl}
+              alt="user"
+              width={0}
+              height={0}
+              sizes="100vh"
+              className="rounded-full size-10"
+            />
+          ) : (
+            <IconUser />
+          )}
         </div>
 
         <div className="flex flex-col">

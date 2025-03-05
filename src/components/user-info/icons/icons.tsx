@@ -1,8 +1,8 @@
 export const IconUser = () => {
   return (
     <svg
-      width="28"
-      height="28"
+      width="40"
+      height="40"
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +24,8 @@ export const IconUser = () => {
           y2="18.5714"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#656096" />
-          <stop offset="1" stop-color="#130F40" />
+          <stop stopColor="#656096" />
+          <stop offset="1" stopColor="#130F40" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_569_190"
@@ -35,8 +35,8 @@ export const IconUser = () => {
           y2="18.5714"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#656096" />
-          <stop offset="1" stop-color="#130F40" />
+          <stop stopColor="#656096" />
+          <stop offset="1" stopColor="#130F40" />
         </linearGradient>
       </defs>
     </svg>
