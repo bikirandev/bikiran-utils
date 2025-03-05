@@ -43,7 +43,7 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
         className={cn(
           "absolute left-1/2 bottom-full mb-3 -translate-x-1/2 z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none transition-all duration-200",
           "opacity-0 scale-95 pointer-events-none",
-          show === user.id && "opacity-100 scale-100 pointer-events-auto" // Show when active
+          show === user?.id && "opacity-100 scale-100 pointer-events-auto" // Show when active
         )}
       >
         <div className="flex items-center gap-3">
@@ -57,9 +57,9 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
           />
           <div>
             <div className="text-primary font-medium">
-              {user.displayName || "-----"}
+              {user?.displayName || "-----"}
             </div>
-            <div className="text-primary-500">{user.email || "-----"}</div>
+            <div className="text-primary-500">{user?.email || "-----"}</div>
           </div>
         </div>
         {/* Tooltip Arrow */}

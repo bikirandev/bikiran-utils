@@ -2,9 +2,9 @@ import { FC } from "react";
 import { IconUser } from "./icons/icons";
 
 const UserInfoComp: FC<{
-  photoUrl: string;
-  name: string;
-  email: string;
+  photoUrl?: string;
+  name?: string;
+  email?: string;
   ImageComponent: any;
 }> = ({ photoUrl, name, email, ImageComponent }) => {
   return (
@@ -23,10 +23,10 @@ const UserInfoComp: FC<{
 
         <div className="flex flex-col">
           <div className="full-name text-primary text-sm 2xl:text-base font-medium">
-            {name}
+            {name || "-------"}
           </div>
           <div className="full-name text-primary-700 text-[13px] 2xl:text-sm leading-[19px] font-normal">
-            {email}
+            {email || "--------"}
           </div>
         </div>
       </div>
