@@ -1,5 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { cn } from "../../lib/utils/cn";
+import { IconUser } from "./icons/icons";
 
 type TProps = {
   user: any;
@@ -23,8 +24,6 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [setShow]);
 
-  if (user === null) return null;
-
   return (
     <div className="relative inline-block" ref={tooltipRef}>
       <div
@@ -32,7 +31,7 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
         className="cursor-pointer"
       >
         <ImageComponent
-          src={user?.photoUrl}
+          src={user?.photoUrl || IconUser()}
           alt="user"
           width={0}
           height={0}
@@ -49,7 +48,7 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
       >
         <div className="flex items-center gap-3">
           <ImageComponent
-            src={user?.photoUrl}
+            src={user?.photoUrl || IconUser()}
             alt="user"
             width={0}
             height={0}
@@ -57,8 +56,10 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
             className="rounded-full size-10"
           />
           <div>
-            <div className="text-primary font-medium">{user.displayName}</div>
-            <div className="text-primary-500">{user.email}</div>
+            <div className="text-primary font-medium">
+              {user.displayName || "-----"}
+            </div>
+            <div className="text-primary-500">{user.email || "-----"}</div>
           </div>
         </div>
         {/* Tooltip Arrow */}

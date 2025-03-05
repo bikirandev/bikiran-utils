@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { IconUser } from "./icons/icons";
 
 const UserInfoComp: FC<{
   photoUrl: string;
@@ -11,7 +12,7 @@ const UserInfoComp: FC<{
       <div className="flex items-center gap-[14px]">
         <div className="size-10 overflow-hidden">
           <ImageComponent
-            src={photoUrl}
+            src={photoUrl || IconUser()}
             alt="user"
             width={0}
             height={0}
