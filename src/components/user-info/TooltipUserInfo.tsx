@@ -30,14 +30,18 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
         onClick={() => setShow(show === user.id ? null : user.id)}
         className="cursor-pointer"
       >
-        <ImageComponent
-          src={user?.photoUrl || IconUser()}
-          alt="user"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="size-7 xl:size-10 rounded-full"
-        />
+        {user?.photoUrl ? (
+          <ImageComponent
+            src={user?.photoUrl}
+            alt="user"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="size-7 xl:size-10 rounded-full"
+          />
+        ) : (
+          <IconUser />
+        )}
       </div>
       <div
         className={cn(
@@ -47,14 +51,18 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
         )}
       >
         <div className="flex items-center gap-3">
-          <ImageComponent
-            src={user?.photoUrl || IconUser()}
-            alt="user"
-            width={0}
-            height={0}
-            sizes="100vh"
-            className="rounded-full size-10"
-          />
+          {user?.photoUrl ? (
+            <ImageComponent
+              src={user?.photoUrl}
+              alt="user"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="size-7 xl:size-10 rounded-full"
+            />
+          ) : (
+            <IconUser />
+          )}
           <div>
             <div className="text-primary font-medium">
               {user?.displayName || "-----"}
