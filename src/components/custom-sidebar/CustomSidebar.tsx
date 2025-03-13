@@ -60,6 +60,7 @@ const CustomSidebar: FC<TProps> = ({
     <div
       className={cn(
         "max-w-[800px] w-full h-full fixed top-[50px] right-0 z-[1] transition-[transform_right] transform translate-x-full",
+        className,
         {
           "translate-x-0 ": modalType === "custom-sidebar",
         }
@@ -68,7 +69,7 @@ const CustomSidebar: FC<TProps> = ({
       <div className="flex items-stretch h-full">
         <div
           className={cn(
-            "w-0 h-full bg-primary-100  flex flex-col items-center py-3",
+            "w-0 h-full bg-primary-100  flex flex-col items-center py-3 ribbon",
             {
               "w-16": isOpen,
             }
@@ -78,7 +79,7 @@ const CustomSidebar: FC<TProps> = ({
             type="button"
             onClick={handleToggle}
             className={cn(
-              "border border-primary-300 rounded-full bg-primary-300 size-7.5 flex justify-center items-center",
+              "border border-primary-300 rounded-full bg-primary-300 size-7.5 flex justify-center items-center button-close",
               {
                 "bg-transparent border-0": !isOpen,
               }
@@ -87,7 +88,7 @@ const CustomSidebar: FC<TProps> = ({
             {isOpen ? <IconClose /> : null}
           </button>
         </div>
-        <Content className={className}>{children}</Content>
+        <Content className="content-wrapper">{children}</Content>
       </div>
     </div>
   );
