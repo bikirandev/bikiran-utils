@@ -42,6 +42,9 @@ const Pages: FC<{
   const searchParams = searchParamsFn();
   const currentPage = Number(searchParams.get("CurrentPage"));
   const queries = new URLSearchParams(searchParams.toString());
+  const nextPage = pages?.length
+    ? Math.min(currentPage + 1, pages[pages.length - 1])
+    : currentPage;
 
   // Make URL with existing queries if any
   const mkUrl = (number: number) => {
@@ -94,7 +97,7 @@ const Pages: FC<{
       {/* Next */}
       <Tab
         title=">"
-        path={mkUrl(Math.min(currentPage + 1, pages[pages?.length - 1]))}
+        path={mkUrl(nextPage)}
         isDisabled={currentPage === total || disabled}
         LinkComp={LinkComp}
       />
