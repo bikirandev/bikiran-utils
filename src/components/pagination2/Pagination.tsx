@@ -1,6 +1,5 @@
 "use client";
 import { FC } from "react";
-import { cn } from "../../lib/utils/cn";
 type TPagination = {
   currentPage: number;
   contentPerPage: number;
@@ -15,40 +14,52 @@ const Tab: FC<{
   path: string;
   title: string;
   isDisabled: boolean;
-  LinkComponent: any;
-}> = ({ path, title, isDisabled, LinkComponent }) => {
+  LinkComp: any;
+}> = ({ path, title, isDisabled, LinkComp }) => {
   return (
-    <LinkComponent
+    <LinkComp
       href={path}
-      className={cn(
-        "px-2.5 min-h-8 text-sm flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5",
-        { "grayscale pointer-events-none": isDisabled }
-      )}
+      className={`px-2.5 min-h-8 text-sm flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5 ${
+        isDisabled ? "grayscale pointer-events-none" : ""
+      }`}
     >
       {title}
-    </LinkComponent>
+    </LinkComp>
   );
 };
 
 const Pages: FC<{
   pages: number[];
   total: number;
-  currentPage: number;
-  mkUrl: (page: number) => string;
   disabled: boolean;
-  LinkComponent: any;
-}> = ({ pages, total, disabled, LinkComponent, currentPage, mkUrl }) => {
+  pathNameFn: any;
+  searchParamsFn: any;
+  LinkComp: any;
+}> = ({ pages, total, disabled, pathNameFn, searchParamsFn, LinkComp }) => {
   // const [show, setShow] = useState<boolean>(false);
 
+  const pathname = pathNameFn();
+  const searchParams = searchParamsFn();
+  const currentPage = Number(searchParams.get("CurrentPage"));
+  const queries = new URLSearchParams(searchParams.toString());
+
+  // Make URL with existing queries if any
+  const mkUrl = (number: number) => {
+    queries.set("CurrentPage", number.toString());
+    return `${pathname}?${queries.toString()}`;
+  };
+
   return (
-    <div className="flex justify-center items-end gap-3 py-3 relative">
-      {/* Prev */}
+    <div className="flex justify-center items-end gap-3 py-3 relative ">
+      {/* Next */}
       <Tab
         title="<"
         path={mkUrl(currentPage - 1)}
         isDisabled={currentPage === 1 || !currentPage || disabled}
-        LinkComponent={LinkComponent}
+        LinkComp={LinkComp}
       />
+
+      {/* Pages */}
       {pages?.map((number: number) => {
         if (number === -100 || number === -101) {
           return (
@@ -59,56 +70,66 @@ const Pages: FC<{
         }
 
         return (
-          <LinkComponent
+          <LinkComp
             key={number}
             href={mkUrl(number)}
-            className={cn(
-              "w-10 min-h-8 flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5 ",
-              {
-                "!bg-primary-100 !text-primary-300 pointer-events-none":
-                  disabled,
-                "!bg-secondary text-white":
-                  !disabled && (currentPage || 1) === number,
+            className={`w-10 min-h-8 flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5 
+              ${
+                disabled
+                  ? "!bg-primary-100 !text-primary-300 pointer-events-none"
+                  : ""
               }
-            )}
+              ${
+                !disabled && (currentPage || 1) === number
+                  ? "!bg-secondary text-white"
+                  : ""
+              } 
+              `}
           >
             {number}
-          </LinkComponent>
+          </LinkComp>
         );
       })}
 
-      {/* Next */}
+      {/* Prev */}
       <Tab
         title=">"
-        path={mkUrl(Math.min(currentPage + 1, pages[pages.length - 1]))}
+        path={mkUrl(currentPage + 1)}
         isDisabled={currentPage === total || disabled}
-        LinkComponent={LinkComponent}
+        LinkComp={LinkComp}
       />
     </div>
   );
 };
 
+// todo: Create a Pagination data validation
+
 const Pagination: FC<{
   data: TPagination;
+  LinkComp: any;
+  pathNameFn: any;
+  searchParamsFn: any;
   disabled?: boolean;
-  currentPage: number;
-  mkUrl: (page: number) => string;
-  link: FC<{ href: string; children: React.ReactNode }>;
-}> = ({ data, disabled = false, link, mkUrl, currentPage }) => {
-  if (!data.pages) return null;
+}> = ({ data, disabled = false, LinkComp, pathNameFn, searchParamsFn }) => {
+  // Hide pagination if no data
+  if (data == null) {
+    return null;
+  }
+
+  // Hide pagination if only one page
   return (
     <div className={`w-full flex justify-between items-center`}>
       <div className="text-primary">
-        Showing {data?.showingFrom} to {data?.showingTo} of {data?.totalContent}{" "}
-        entries
+        Showing {data.showingFrom} to {data.showingTo} of {data.totalContent}
+        &nbsp; entries
       </div>
       <Pages
         pages={data?.pages}
         total={data?.numberOfPages}
         disabled={disabled}
-        LinkComponent={link}
-        currentPage={currentPage}
-        mkUrl={mkUrl}
+        LinkComp={LinkComp}
+        pathNameFn={pathNameFn}
+        searchParamsFn={searchParamsFn}
       />
     </div>
   );
