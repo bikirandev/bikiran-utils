@@ -6,6 +6,7 @@ import { IconClose } from "./icons";
 type TProps = {
   children: ReactNode;
   className?: string;
+  showType: string;
   usePathname: () => string;
   useTemplate: () => {
     modalType: string;
@@ -34,19 +35,20 @@ const Content: FC<{
 const CustomSidebar: FC<TProps> = ({
   children,
   className,
+  showType,
   usePathname,
   useTemplate,
 }) => {
   const { modalType, closeModal, openModal, modalData } = useTemplate();
   const pathname = usePathname();
 
-  const isOpen = modalType === "custom-sidebar";
+  const isOpen = modalType === showType;
 
   const handleToggle = () => {
     if (isOpen) {
       openModal("", modalData);
     } else {
-      openModal("custom-sidebar", modalData);
+      openModal(showType, modalData);
     }
   };
 
@@ -62,7 +64,7 @@ const CustomSidebar: FC<TProps> = ({
         "max-w-[800px] w-full h-full fixed top-[50px] right-0 z-[1] transition-[transform_right] transform translate-x-full",
         className,
         {
-          "translate-x-0 ": modalType === "custom-sidebar",
+          "translate-x-0 ": modalType === showType,
         }
       )}
     >
