@@ -1,10 +1,12 @@
 import { FC, useEffect, useRef, useState } from "react";
+import SearchInput from "./SearchInput";
+import { iconReset } from "./icons/Icons";
 import { cn } from "../../lib/utils/cn";
-import { iconFilter } from "./icons/Icons";
 
 type TProps = {
   formData: Record<string, any>;
   onSearch: (search: string) => void;
+  resetClick?: () => void;
   children: React.ReactNode;
   placeholder?: string;
   disabled?: boolean;
@@ -42,6 +44,7 @@ const FilterBarWrapper: FC<TProps> = ({
   disabled,
   placeholder = "Search anything...",
   onSearch,
+  resetClick,
   overflow,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -123,45 +126,13 @@ const FilterBarWrapper: FC<TProps> = ({
       ref={ref}
     >
       {/* Search Bar */}
-      <div
-        className={cn(
-          "flex items-center h-10 overflow-hidden border border-secondary-100 rounded-10 relative z-50",
-          {
-            "rounded-bl-none rounded-br-none ": isOpen,
-          }
-        )}
-      >
-        <input
-          type="text"
-          onChange={() => {}}
-          onFocus={() => setIsFocus(true)} // toggle filter bar
-          value={searchedValue}
-          readOnly
-          placeholder="Search Anything...."
-          className="flex-1 rounded-10 py-2 px-4 focus:outline-none text-xs"
-          // onBlur={() => setIsFocus(false)}
-        />
-        {/* if searchedValue is empty then show placeholder */}
-        {searchedValue?.length === 2 && (
-          <span
-            className="absolute top-1/2 left-4 -translate-y-1/2 text-primary-500"
-            onClick={() => setIsFilterOpen((prev) => !prev)} // toggle filter bar
-          >
-            {placeholder}
-          </span>
-        )}
-        <button
-          className={cn(
-            "w-10 h-[80%] mx-1 px-3 rounded-[5px] hover:bg-primary-100 transition-colors flex justify-center items-center",
-            {
-              "bg-primary-100": isOpen,
-            }
-          )}
-          onClick={() => setIsFilterOpen((prev) => !prev)} // toggle filter bar
-        >
-          {iconFilter()}
-        </button>
-      </div>
+      <SearchInput
+        isOpen={isOpen}
+        onFocus={() => setIsFocus(true)}
+        toggleFilter={() => setIsFilterOpen((prev) => !prev)}
+        searchedValue={searchedValue}
+        placeholder={placeholder}
+      />
 
       {/* Filter Section */}
       <div
@@ -178,10 +149,20 @@ const FilterBarWrapper: FC<TProps> = ({
           className="pt-8 px-4 pb-4 space-y-3 border border-secondary-100 border-t-transparent rounded-bl-10 rounded-br-10"
         >
           {children}
-          <div className="flex justify-end">
+          <div className="flex justify-end gap-2.5">
+            {resetClick !== undefined && (
+              <button
+                type="button"
+                onClick={resetClick}
+                className="size-8.5 rounded-[8px] bg-secondary-100 hover:bg-secondary p-1.5 group transition-colors"
+              >
+                {iconReset("text-secondary group-hover:text-white")}
+              </button>
+            )}
+
             <button
               className={cn(
-                "relative px-3 py-1 text-base font-medium rounded-[8px] transition-colors disabled:bg-primary-100 disabled:pointer-events-none disabled:text-primary-500 w-36 py-2 bg-[#AE00B9] text-white"
+                "relative px-3 h-8.5 text-base font-medium rounded-[8px] transition-colors disabled:bg-primary-100 disabled:pointer-events-none disabled:text-primary-500 w-36  bg-[#AE00B9] text-white"
               )}
             >
               Search
