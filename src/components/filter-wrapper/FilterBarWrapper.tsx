@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { iconFilter } from "./icons/Icons";
-import { cn } from "@/bik-lib/utils/cn";
+import { cn } from "../../lib/utils/cn";
 
 type TProps = {
   formData: Record<string, any>;
