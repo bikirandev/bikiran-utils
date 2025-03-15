@@ -94,7 +94,7 @@ const Pages: FC<{
       {/* Next */}
       <Tab
         title=">"
-        path={mkUrl(Math.min(currentPage + 1, pages[pages.length - 1]))}
+        path={mkUrl(Math.min(currentPage + 1, pages[pages?.length - 1]))}
         isDisabled={currentPage === total || disabled}
         LinkComp={LinkComp}
       />
