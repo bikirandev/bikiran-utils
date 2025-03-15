@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
-import { cn } from "../../lib/utils/cn";
 import { iconFilter } from "./icons/Icons";
+import { cn } from "@/bik-lib/utils/cn";
 
 type TProps = {
   formData: Record<string, any>;
@@ -114,7 +114,7 @@ const FilterBarWrapper: FC<TProps> = ({
   return (
     <div
       className={cn(
-        "bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] rounded-10 relative z-[1]",
+        "bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] rounded-10 relative",
         {
           "[&_input]:bg-primary-50 [&>div]:!border-primary-100 bg-primary-50  pointer-events-none ":
             disabled,
@@ -125,7 +125,7 @@ const FilterBarWrapper: FC<TProps> = ({
       {/* Search Bar */}
       <div
         className={cn(
-          "flex items-center h-10 overflow-hidden border border-secondary-100 rounded-10 relative z-50",
+          "flex items-center h-10 overflow-hidden border border-secondary-100 rounded-10 relative",
           {
             "rounded-bl-none rounded-br-none ": isOpen,
           }
@@ -166,7 +166,7 @@ const FilterBarWrapper: FC<TProps> = ({
       {/* Filter Section */}
       <div
         className={cn(
-          "w-full bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] absolute top-8 left-0 z-30 max-h-0 overflow-hidden transition-[max-height] ",
+          "w-full bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] absolute top-8 left-0 z-[1] max-h-0 overflow-hidden transition-[max-height] ",
           {
             "max-h-[500px] rounded-bl-10 rounded-br-10": isOpen,
             [`${overflow}`]: isOpen,
