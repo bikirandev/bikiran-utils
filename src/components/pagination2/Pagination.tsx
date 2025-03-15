@@ -40,7 +40,7 @@ const Pages: FC<{
 
   const pathname = pathNameFn();
   const searchParams = searchParamsFn();
-  const currentPage = Number(searchParams.get("CurrentPage"));
+  const currentPage = Number(searchParams.get("CurrentPage")) || 1;
   const queries = new URLSearchParams(searchParams.toString());
   const nextPage = pages?.length
     ? Math.min(currentPage + 1, pages[pages.length - 1])
