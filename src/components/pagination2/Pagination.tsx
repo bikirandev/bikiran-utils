@@ -51,7 +51,7 @@ const Pages: FC<{
 
   return (
     <div className="flex justify-center items-end gap-3 py-3 relative ">
-      {/* Next */}
+      {/* Prev */}
       <Tab
         title="<"
         path={mkUrl(currentPage - 1)}
@@ -91,10 +91,10 @@ const Pages: FC<{
         );
       })}
 
-      {/* Prev */}
+      {/* Next */}
       <Tab
         title=">"
-        path={mkUrl(currentPage + 1)}
+        path={mkUrl(Math.min(currentPage + 1, pages[pages.length - 1]))}
         isDisabled={currentPage === total || disabled}
         LinkComp={LinkComp}
       />
