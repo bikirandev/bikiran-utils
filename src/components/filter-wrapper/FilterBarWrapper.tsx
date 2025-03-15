@@ -154,7 +154,7 @@ const FilterBarWrapper: FC<TProps> = ({
               <button
                 type="button"
                 onClick={resetClick}
-                className="size-8.5 rounded-[8px] bg-secondary-100 hover:bg-secondary p-1.5 group transition-colors"
+                className="size-[34px] rounded-[8px] bg-secondary-100 hover:bg-secondary p-1.5 group transition-colors"
               >
                 {iconReset("text-secondary group-hover:text-white")}
               </button>
@@ -162,7 +162,7 @@ const FilterBarWrapper: FC<TProps> = ({
 
             <button
               className={cn(
-                "relative px-3 h-8.5 text-base font-medium rounded-[8px] transition-colors disabled:bg-primary-100 disabled:pointer-events-none disabled:text-primary-500 w-36  bg-[#AE00B9] text-white"
+                "relative px-3 h-[34px] text-base font-medium rounded-[8px] transition-colors disabled:bg-primary-100 disabled:pointer-events-none disabled:text-primary-500 w-36  bg-[#AE00B9] text-white"
               )}
             >
               Search
