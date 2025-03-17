@@ -5,11 +5,27 @@ import { IconUser } from "./icons/icons";
 type TProps = {
   user: any;
   ImageComponent: any;
+  redirectClick?: () => void;
 };
 
-const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
+const TooltipUserInfo: FC<TProps> = ({
+  user,
+  ImageComponent,
+  redirectClick,
+}) => {
   const [show, setShow] = useState<number | null>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
+
+  const handleRedirectClick = () => {
+    if (
+      typeof redirectClick !== "undefined" &&
+      typeof redirectClick === "function"
+    ) {
+      redirectClick();
+    }
+    return () => {};
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -50,7 +66,10 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
           show === user?.id && "opacity-100 scale-100 pointer-events-auto" // Show when active
         )}
       >
-        <div className="flex items-center gap-3">
+        <button
+          className="flex items-center gap-3"
+          onClick={handleRedirectClick}
+        >
           {user?.photoUrl ? (
             <ImageComponent
               src={user?.photoUrl}
@@ -69,7 +88,7 @@ const TooltipUserInfo: FC<TProps> = ({ user, ImageComponent }) => {
             </div>
             <div className="text-primary-500">{user?.email || "-----"}</div>
           </div>
-        </div>
+        </button>
         {/* Tooltip Arrow */}
         <div className="absolute left-1/2 top-full -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white" />
       </div>
