@@ -41,10 +41,13 @@ const TooltipUserInfo: FC<TProps> = ({
   }, [setShow]);
 
   return (
-    <div className="relative inline-block" ref={tooltipRef}>
+    <div className="relative inline-block parentComp" ref={tooltipRef}>
       <div
         onClick={() => setShow(show === user?.id ? null : user?.id)}
-        className={cn("cursor-pointer", user === null && "pointer-events-none")}
+        className={cn(
+          "cursor-pointer imageDiv",
+          user === null && "pointer-events-none"
+        )}
       >
         {user?.photoUrl ? (
           <ImageComponent
@@ -59,17 +62,15 @@ const TooltipUserInfo: FC<TProps> = ({
           <IconUser />
         )}
       </div>
-      <div
+      <button
         className={cn(
           "absolute left-1/2 bottom-full mb-3 -translate-x-1/2 z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none transition-all duration-200",
-          "opacity-0 scale-95 pointer-events-none",
+          "opacity-0 scale-95 pointer-events-none redirectBtn",
           show === user?.id && "opacity-100 scale-100 pointer-events-auto" // Show when active
         )}
+        onClick={handleRedirectClick}
       >
-        <button
-          className="flex items-center gap-3"
-          onClick={handleRedirectClick}
-        >
+        <div className="flex items-center gap-3 showImg">
           {user?.photoUrl ? (
             <ImageComponent
               src={user?.photoUrl}
@@ -83,15 +84,17 @@ const TooltipUserInfo: FC<TProps> = ({
             <IconUser />
           )}
           <div>
-            <div className="text-primary font-medium">
+            <div className="text-primary font-medium text-start displayNameComp">
               {user?.displayName || "-----"}
             </div>
-            <div className="text-primary-500">{user?.email || "-----"}</div>
+            <div className="text-primary-500 text-start emailComp">
+              {user?.email || "-----"}
+            </div>
           </div>
-        </button>
+        </div>
         {/* Tooltip Arrow */}
         <div className="absolute left-1/2 top-full -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white" />
-      </div>
+      </button>
     </div>
   );
 };
