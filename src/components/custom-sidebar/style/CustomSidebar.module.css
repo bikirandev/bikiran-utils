@@ -17,5 +17,5 @@
   @apply border border-primary-300 rounded-full bg-primary-300 size-7.5 flex justify-center items-center;
 }
 .content {
-  @apply flex-1 bg-white p-5 pb-20 custom-scrollbar overflow-auto;
+  @apply flex-1 bg-white p-5 pb-20 overflow-auto;
 }

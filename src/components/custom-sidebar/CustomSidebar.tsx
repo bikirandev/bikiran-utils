@@ -22,7 +22,9 @@ const Content: FC<{
   className?: string;
 }> = ({ children, className }) => {
   return (
-    <div className={cn(style.content, "content", className)}>{children}</div>
+    <div className={cn(style.content, "content custom-scrollbar", className)}>
+      {children}
+    </div>
   );
 };
 
