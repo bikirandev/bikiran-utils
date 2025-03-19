@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { cn } from "../../lib/utils/cn";
 import { IconUser } from "./icons/icons";
+import style from "./style/ToolTipUserInfo.module.css";
 
 type TProps = {
   user: any;
@@ -41,13 +42,10 @@ const TooltipUserInfo: FC<TProps> = ({
   }, [setShow]);
 
   return (
-    <div className="relative inline-block parentComp" ref={tooltipRef}>
+    <div className={cn(style.toolTipParentComp, "parentComp")} ref={tooltipRef}>
       <div
         onClick={() => setShow(show === user?.id ? null : user?.id)}
-        className={cn(
-          "cursor-pointer imageDiv",
-          user === null && "pointer-events-none"
-        )}
+        className={cn(style.imageDiv, "imageDiv")}
       >
         {user?.photoUrl ? (
           <ImageComponent
@@ -56,7 +54,7 @@ const TooltipUserInfo: FC<TProps> = ({
             width={0}
             height={0}
             sizes="100vw"
-            className="size-7 xl:size-10 rounded-full"
+            className={cn(style.userImage, "userImage")}
           />
         ) : (
           <IconUser />
@@ -64,13 +62,13 @@ const TooltipUserInfo: FC<TProps> = ({
       </div>
       <button
         className={cn(
-          "absolute left-1/2 bottom-full mb-3 -translate-x-1/2 z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none transition-all duration-200",
-          "opacity-0 scale-95 pointer-events-none redirectBtn",
-          show === user?.id && "opacity-100 scale-100 pointer-events-auto" // Show when active
+          style.btnRedirect,
+          "btnRedirect",
+          show === user?.id ? style.show : "show" // Show when active
         )}
         onClick={handleRedirectClick}
       >
-        <div className="flex items-center gap-3 showImg">
+        <div className={cn(style.showImg, "showImg")}>
           {user?.photoUrl ? (
             <ImageComponent
               src={user?.photoUrl}
@@ -78,22 +76,22 @@ const TooltipUserInfo: FC<TProps> = ({
               width={0}
               height={0}
               sizes="100vw"
-              className="size-7 xl:size-10 rounded-full"
+              className={cn(style.userImage, "userImage")}
             />
           ) : (
             <IconUser />
           )}
           <div>
-            <div className="text-primary font-medium text-start displayNameComp">
+            <div className={cn(style.displayName, "displayName")}>
               {user?.displayName || "-----"}
             </div>
-            <div className="text-primary-500 text-start emailComp">
+            <div className={cn(style.email, "email")}>
               {user?.email || "-----"}
             </div>
           </div>
         </div>
         {/* Tooltip Arrow */}
-        <div className="absolute left-1/2 top-full -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-white" />
+        <div className={cn(style.tooltipArrow, "tooltipArrow")} />
       </button>
     </div>
   );
