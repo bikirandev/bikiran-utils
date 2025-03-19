@@ -1,0 +1,62 @@
+/* InformationTooltip.module.css */
+
+.wrapper {
+  @apply relative inline-flex items-center cursor-pointer;
+}
+
+.tooltipContent {
+  @apply absolute rounded-[15px] text-sm w-56 px-4 py-3 shadow-md hidden z-10 transition-all duration-300 ease-in-out;
+}
+
+.wrapper:hover .tooltipContent {
+  @apply block;
+}
+
+.arrow {
+  @apply absolute size-full hidden z-10;
+}
+
+.wrapper:hover .arrow {
+  @apply block;
+}
+
+/* Alignment positions for tooltipContent */
+.rightAlign {
+  left: calc(100% + 24%);
+  @apply top-1/2 transform -translate-y-1/2;
+}
+
+.leftAlign {
+  right: calc(100% + 24%);
+  @apply top-1/2 transform -translate-y-1/2;
+}
+
+.topAlign {
+  bottom: calc(100% + 19%);
+  @apply left-1/2 transform -translate-x-1/2;
+}
+
+.bottomAlign {
+  top: calc(100% + 20%);
+  @apply left-1/2 transform -translate-x-1/2;
+}
+
+/* Arrow positions */
+.arrowRight {
+  left: calc(100% - 26px);
+  @apply top-1/2 transform rotate-90 -translate-x-[100%];
+}
+
+.arrowLeft {
+  right: calc(100% - 27px);
+
+  @apply top-1/2 transform rotate-90 translate-x-[100%];
+}
+
+.arrowTop {
+  @apply left-4 bottom-2 transform rotate-0 -translate-x-1/2;
+}
+
+.arrowBottom {
+  @apply left-4 top-2 transform rotate-180 -translate-x-1/2;
+}

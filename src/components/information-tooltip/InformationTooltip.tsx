@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { IconArrow, IconInfo } from "./icons";
+import styles from "./style/InfoTooltip.module.css";
 import { cn } from "../../lib/utils/cn";
 
 type TProps = {
@@ -16,90 +17,48 @@ const InformationTooltip: FC<TProps> = ({
   content,
   className,
   align = "right",
-  fillColor,
-  borderColor,
+  fillColor = "#FFF9DB",
+  borderColor = "#FFE6BA",
 }) => {
-  const positionStyles = {
-    backgroundColor: fillColor ? fillColor : "#FFF9DB",
-    borderColor: borderColor ? borderColor : "#FFE6BA",
-    left:
-      align === "right"
-        ? "calc(100% + 24%)"
-        : align === "left"
-        ? "auto"
-        : "50%",
-    right: align === "left" ? "calc(100% + 24%)" : "auto",
-    top:
-      align === "bottom"
-        ? "calc(100% + 20%)"
-        : align === "top"
-        ? "auto"
-        : "50%",
-    bottom: align === "top" ? "calc(100% + 19%)" : "auto",
-    transform:
-      align === "top" || align === "bottom"
-        ? "translateX(-50%)"
-        : "translateY(-50%)",
-  };
+  const tooltipClass = cn(
+    styles.tooltipContent,
+    align === "top"
+      ? styles.topAlign
+      : align === "bottom"
+      ? styles.bottomAlign
+      : align === "left"
+      ? styles.leftAlign
+      : styles.rightAlign,
+    className
+  );
 
-  // const animationClasses = cn(
-  //   align === "top"
-  //     ? "origin-bottom scale-y-0 group-hover:scale-y-100"
-  //     : align === "bottom"
-  //     ? "origin-top scale-y-0 group-hover:scale-y-100"
-  //     : align === "left"
-  //     ? "origin-right scale-x-0 group-hover:scale-x-100"
-  //     : "origin-left scale-x-0 group-hover:scale-x-100"
-  // );
-
-  const arrowStyles = {
-    left:
-      align === "right"
-        ? "calc(100% - 26px)"
-        : align === "top"
-        ? "16px"
-        : "auto", // Adjusts arrow position on the right
-    right:
-      align === "left"
-        ? "calc(100% - 27px)"
-        : align === "bottom"
-        ? "16px"
-        : "auto", // Adjusts arrow position on the left
-    top: align === "bottom" ? "8px" : "auto", // Adjusts arrow position on the top
-    bottom: align === "top" ? "8px" : "auto", // Adjusts arrow position on the bottom
-    transform:
-      align === "top"
-        ? "translateX(-50%) "
-        : align === "right"
-        ? "rotate(90deg) translateX(-100%)"
-        : align === "left"
-        ? "rotate(-90deg) translateX(100%)"
-        : align === "bottom"
-        ? "rotate(180deg) translateX(-50%)"
-        : "", // Centers arrow for top and bottom alignments
-  };
+  const arrowClass = cn(
+    styles.arrow,
+    align === "top"
+      ? styles.arrowTop
+      : align === "bottom"
+      ? styles.arrowBottom
+      : align === "left"
+      ? styles.arrowLeft
+      : styles.arrowRight
+  );
 
   return (
-    <div className={"container relative my-auto cursor-pointer group"}>
+    <div className={styles.wrapper}>
       {children ? children : <IconInfo />}
       <div
-        className={cn(
-          "content absolute border text-sm bg-[#FFF9DB] border-[#FFE6BA] text-primary shadow-md rounded-15 w-56 px-4 py-3 hidden  transition-all z-10 group-hover:block",
-          // animationClasses,
-          className
-        )}
-        style={positionStyles}
+        className={tooltipClass}
+        style={{
+          backgroundColor: fillColor,
+          borderColor: borderColor,
+          borderWidth: "1px",
+          color: "var(--color-primary)", // if you have text-primary color in css vars
+        }}
       >
         <span>{content}</span>
       </div>
-      <div
-        className={"arrow group-hover:block absolute size-full hidden z-10"}
-        style={arrowStyles}
-      >
-        <IconArrow
-          fillColor={fillColor || "#FFF9DB"}
-          borderColor={borderColor || "#FFE6BA"}
-        />
+      <div className={arrowClass}>
+        <IconArrow fillColor={fillColor} borderColor={borderColor} />
       </div>
     </div>
   );
