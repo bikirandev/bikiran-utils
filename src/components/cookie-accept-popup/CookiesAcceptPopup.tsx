@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getBaseDomain, getBikiranUrl } from "../../lib/utils/Env";
+import style from "./style/CookieAcceptPopup.module.css";
 import Cookie from "../../lib/utils/Cookie";
+import { cn } from "../../lib/utils/cn";
 
 const CookiesAcceptPopup = () => {
   // State to control the popup visibility
@@ -28,14 +30,14 @@ const CookiesAcceptPopup = () => {
   }
 
   return (
-    <div className="fixed bottom-7 z-[9999999] sm:bottom-16 left-5 w-[320px] sm:w-[405px] bg-white shadow-[0px_3px_50px_0px_rgba(19,15,64,0.08)] rounded-15 p-5 sm:px-5 sm:py-[25px]">
-      <p className="text-primary-700 text-sm sm:text-base font-normal leading-[25px] mb-4 sm:mb-[18px]">
+    <div className={cn(style.container, "container")}>
+      <p className={cn(style.text, "text")}>
         This site uses cookies. By continuing to use this website, you agree to
         their use. For details, please check our{" "}
         <a
           href={getBikiranUrl() + "/legal/privacy-policy"}
           target="_blank"
-          className="text-secondary"
+          className={cn(style.a, "a")}
         >
           Privacy Policy
         </a>
@@ -44,7 +46,7 @@ const CookiesAcceptPopup = () => {
 
       <button
         type="button"
-        className="h-10 bg-secondary text-white text-sm sm:text-base font-medium px-4 sm:px-5 rounded-[8px]"
+        className={cn(style.btn, "btn")}
         onClick={() => setMode(true)}
       >
         I Accept

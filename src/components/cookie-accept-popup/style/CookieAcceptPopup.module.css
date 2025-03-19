@@ -1,0 +1,12 @@
+.container {
+  @apply fixed bottom-7 z-[9999999] sm:bottom-16 left-5 w-[320px] sm:w-[405px] bg-white shadow-[0px_3px_50px_0px_rgba(19,15,64,0.08)] rounded-15 p-5 sm:px-5 sm:py-[25px];
+}
+.text {
+  @apply text-primary-700 text-sm sm:text-base font-normal leading-[25px] mb-4 sm:mb-[18px];
+}
+.a {
+  @apply text-secondary;
+}
+.btn {
+  @apply h-10 bg-secondary text-white text-sm sm:text-base font-medium px-4 sm:px-5 rounded-[8px];
+}
