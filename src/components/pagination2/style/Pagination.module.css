@@ -1,0 +1,27 @@
+.tab {
+  @apply px-2.5 min-h-8 text-sm flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5;
+}
+.tabDisabled {
+  @apply grayscale pointer-events-none;
+}
+.linkComp {
+  @apply w-10 min-h-8 flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5;
+}
+.linkCompDisabled {
+  @apply !bg-primary-100 !text-primary-300 pointer-events-none;
+}
+.linkActive {
+  @apply !bg-secondary text-white;
+}
+.dots {
+  @apply text-secondary;
+}
+.pagesComp {
+  @apply flex justify-center items-end gap-3 py-3 relative;
+}
+.paginationContainer {
+  @apply w-full flex justify-between items-center;
+}
+.showingText {
+  @apply text-primary;
+}

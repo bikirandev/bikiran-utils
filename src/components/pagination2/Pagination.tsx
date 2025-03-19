@@ -1,5 +1,8 @@
 "use client";
 import { FC } from "react";
+import style from "./style/Pagination.module.css";
+import { cn } from "../../lib/utils/cn";
+
 type TPagination = {
   currentPage: number;
   contentPerPage: number;
@@ -19,15 +22,16 @@ const Tab: FC<{
   return (
     <LinkComp
       href={path}
-      className={`px-2.5 min-h-8 text-sm flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5 ${
-        isDisabled ? "grayscale pointer-events-none" : ""
-      }`}
+      className={cn(
+        style.tab,
+        "tab",
+        isDisabled ? style.tabDisabled : "tabDisabled"
+      )}
     >
       {title}
     </LinkComp>
   );
 };
-
 const Pages: FC<{
   pages: number[];
   total: number;
@@ -53,7 +57,7 @@ const Pages: FC<{
   };
 
   return (
-    <div className="flex justify-center items-end gap-3 py-3 relative ">
+    <div className={cn(style.pagesComp, " pagesComp")}>
       {/* Prev */}
       <Tab
         title="<"
@@ -66,7 +70,7 @@ const Pages: FC<{
       {pages?.map((number: number) => {
         if (number === -100 || number === -101) {
           return (
-            <div key={number} className="text-secondary">
+            <div key={number} className={cn(style.dots, "dots")}>
               ....
             </div>
           );
@@ -76,18 +80,14 @@ const Pages: FC<{
           <LinkComp
             key={number}
             href={mkUrl(number)}
-            className={`w-10 min-h-8 flex justify-center items-center py-1 bg-secondary-100 hover:bg-secondary text-secondary hover:text-white transition-colors rounded-5 
-              ${
-                disabled
-                  ? "!bg-primary-100 !text-primary-300 pointer-events-none"
-                  : ""
-              }
-              ${
-                !disabled && (currentPage || 1) === number
-                  ? "!bg-secondary text-white"
-                  : ""
-              } 
-              `}
+            className={cn(
+              style.linkComp,
+              "linkComp",
+              disabled ? style.linkCompDisabled : "linkCompDisabled",
+              !disabled && (currentPage || 1) === number
+                ? style.linkActive
+                : "linkActive"
+            )}
           >
             {number}
           </LinkComp>
@@ -121,8 +121,8 @@ const Pagination: FC<{
 
   // Hide pagination if only one page
   return (
-    <div className={`w-full flex justify-between items-center`}>
-      <div className="text-primary">
+    <div className={cn(style.paginationContainer, "paginationContainer")}>
+      <div className={cn(style.showingText, "showingText")}>
         Showing {data.showingFrom} to {data.showingTo} of {data.totalContent}
         &nbsp; entries
       </div>
