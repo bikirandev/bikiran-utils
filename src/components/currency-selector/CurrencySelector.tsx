@@ -46,9 +46,11 @@ function Option({ item, isCurrent, onClick }: TOptionProps) {
   return (
     <button
       type="button"
-      className={`dropdown-option w-full flex items-center justify-between text-sm py-[7px] px-3 border-b border-secondary-100 last:border-0 first:rounded-tl-[7px] first:rounded-tr-[7px] last:rounded-bl-[7px] last:rounded-br-[7px] hover:text-secondary ${
-        isCurrent ? "text-secondary" : "text-primary"
-      }`}
+      className={cn(
+        style.option,
+        "option",
+        isCurrent ? style.isCurrent : "isCurrent"
+      )}
       onClick={onClick}
     >
       <span>{item?.currency || "--"}</span>{" "}

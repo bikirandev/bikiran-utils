@@ -1,0 +1,21 @@
+.container {
+  @apply max-w-[800px] w-full h-full fixed top-[50px] right-0 z-[1] transition-[transform_right] transform translate-x-full;
+}
+.type {
+  @apply translate-x-0;
+}
+.sidebarBody {
+  @apply w-0 h-full bg-primary-100  flex flex-col items-center py-3 ribbon;
+}
+.sidebarBodyOpen {
+  @apply w-16;
+}
+.notOpen {
+  @apply bg-transparent border-0;
+}
+.btnClose {
+  @apply border border-primary-300 rounded-full bg-primary-300 size-7.5 flex justify-center items-center;
+}
+.content {
+  @apply flex-1 bg-white p-5 pb-20 custom-scrollbar overflow-auto;
+}
