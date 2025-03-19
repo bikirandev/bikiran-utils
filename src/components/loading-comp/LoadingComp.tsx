@@ -1,6 +1,9 @@
+import { cn } from "../../lib/utils/cn";
+import style from "./style/LoadingComp.module.css";
+
 const LoadingComp = () => {
   return (
-    <div className="flex items-center justify-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#2929292d] size-full z-[9999999999999999]">
+    <div className={cn(style.parentDiv, "parentDiv")}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"

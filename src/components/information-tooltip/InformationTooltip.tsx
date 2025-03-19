@@ -81,12 +81,12 @@ const InformationTooltip: FC<TProps> = ({
   };
 
   return (
-    <div className={cn(style.container, "container")}>
+    <div className={cn(style.container, "container group")}>
       {children ? children : <IconInfo />}
       <div
         className={cn(
           style.content,
-          "content",
+          "content group-hover:block",
           // animationClasses,
           className
         )}
@@ -94,7 +94,10 @@ const InformationTooltip: FC<TProps> = ({
       >
         <span>{content}</span>
       </div>
-      <div className={cn(style.arrow, "arrow")} style={arrowStyles}>
+      <div
+        className={cn(style.arrow, "arrow group-hover:block")}
+        style={arrowStyles}
+      >
         <IconArrow
           fillColor={fillColor || "#FFF9DB"}
           borderColor={borderColor || "#FFE6BA"}
