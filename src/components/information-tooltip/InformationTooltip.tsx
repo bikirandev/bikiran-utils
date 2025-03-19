@@ -1,7 +1,6 @@
 import React, { FC } from "react";
-import { cn } from "../../lib/utils/cn";
 import { IconArrow, IconInfo } from "./icons";
-import style from "./style/InfoTooltip.module.css";
+import { cn } from "@/bik-lib/utils/cn";
 
 type TProps = {
   content: string;
@@ -27,15 +26,15 @@ const InformationTooltip: FC<TProps> = ({
       align === "right"
         ? "calc(100% + 24%)"
         : align === "left"
-        ? "auto"
-        : "50%",
+          ? "auto"
+          : "50%",
     right: align === "left" ? "calc(100% + 24%)" : "auto",
     top:
       align === "bottom"
         ? "calc(100% + 20%)"
         : align === "top"
-        ? "auto"
-        : "50%",
+          ? "auto"
+          : "50%",
     bottom: align === "top" ? "calc(100% + 19%)" : "auto",
     transform:
       align === "top" || align === "bottom"
@@ -58,35 +57,34 @@ const InformationTooltip: FC<TProps> = ({
       align === "right"
         ? "calc(100% - 26px)"
         : align === "top"
-        ? "16px"
-        : "auto", // Adjusts arrow position on the right
+          ? "16px"
+          : "auto", // Adjusts arrow position on the right
     right:
       align === "left"
         ? "calc(100% - 27px)"
         : align === "bottom"
-        ? "16px"
-        : "auto", // Adjusts arrow position on the left
+          ? "16px"
+          : "auto", // Adjusts arrow position on the left
     top: align === "bottom" ? "8px" : "auto", // Adjusts arrow position on the top
     bottom: align === "top" ? "8px" : "auto", // Adjusts arrow position on the bottom
     transform:
       align === "top"
         ? "translateX(-50%) "
         : align === "right"
-        ? "rotate(90deg) translateX(-100%)"
-        : align === "left"
-        ? "rotate(-90deg) translateX(100%)"
-        : align === "bottom"
-        ? "rotate(180deg) translateX(-50%)"
-        : "", // Centers arrow for top and bottom alignments
+          ? "rotate(90deg) translateX(-100%)"
+          : align === "left"
+            ? "rotate(-90deg) translateX(100%)"
+            : align === "bottom"
+              ? "rotate(180deg) translateX(-50%)"
+              : "", // Centers arrow for top and bottom alignments
   };
 
   return (
-    <div className={cn(style.container, "container group")}>
+    <div className={"container relative my-auto cursor-pointer group"}>
       {children ? children : <IconInfo />}
       <div
         className={cn(
-          style.content,
-          "content group-hover:block",
+          "content absolute border text-sm bg-[#FFF9DB] border-[#FFE6BA] text-primary shadow-md rounded-15 w-56 px-4 py-3 hidden  transition-all z-10 group-hover:block",
           // animationClasses,
           className
         )}
@@ -95,7 +93,7 @@ const InformationTooltip: FC<TProps> = ({
         <span>{content}</span>
       </div>
       <div
-        className={cn(style.arrow, "arrow group-hover:block")}
+        className={"arrow group-hover:block absolute size-full hidden z-10"}
         style={arrowStyles}
       >
         <IconArrow
