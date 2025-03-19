@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { cn } from "../../lib/utils/cn";
 import { IconArrow, IconInfo } from "./icons";
+import style from "./style/InfoTooltip.module.css";
 
 type TProps = {
   content: string;
@@ -80,11 +81,12 @@ const InformationTooltip: FC<TProps> = ({
   };
 
   return (
-    <div className="relative group my-auto cursor-pointer">
+    <div className={cn(style.container, "container")}>
       {children ? children : <IconInfo />}
       <div
         className={cn(
-          "absolute border text-sm bg-[#FFF9DB] border-[#FFE6BA] text-primary shadow-md rounded-15 w-56 px-4 py-3 hidden group-hover:block transition-all z-10",
+          style.content,
+          "content",
           // animationClasses,
           className
         )}
@@ -92,10 +94,7 @@ const InformationTooltip: FC<TProps> = ({
       >
         <span>{content}</span>
       </div>
-      <div
-        className="absolute size-full hidden group-hover:block z-10"
-        style={arrowStyles}
-      >
+      <div className={cn(style.arrow, "arrow")} style={arrowStyles}>
         <IconArrow
           fillColor={fillColor || "#FFF9DB"}
           borderColor={borderColor || "#FFE6BA"}

@@ -1,0 +1,10 @@
+.content {
+  @apply absolute border text-sm bg-[#FFF9DB] border-[#FFE6BA] text-primary shadow-md rounded-15 w-56 px-4 py-3 hidden group-hover:block transition-all z-10;
+}
+
+.container {
+  @apply relative group my-auto cursor-pointer;
+}
+.arrow {
+  @apply absolute size-full hidden group-hover:block z-10;
+}
