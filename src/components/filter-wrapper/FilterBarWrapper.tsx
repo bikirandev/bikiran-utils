@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import SearchInput from "./SearchInput";
 import { iconReset } from "./icons/Icons";
+import style from "./style/FilterBarWrapper.module.css";
 import { cn } from "../../lib/utils/cn";
 
 type TProps = {
@@ -117,11 +118,11 @@ const FilterBarWrapper: FC<TProps> = ({
   return (
     <div
       className={cn(
-        "bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] rounded-10 relative z-[1]",
-        {
-          "[&_input]:bg-primary-50 [&>div]:!border-primary-100 bg-primary-50  pointer-events-none ":
-            disabled,
-        }
+        style.filterBarContainer,
+        "filterBarContainer",
+        disabled
+          ? style.filterBarContainerDisabled
+          : "filterBarContainerDisabled"
       )}
       ref={ref}
     >
@@ -137,38 +138,25 @@ const FilterBarWrapper: FC<TProps> = ({
       {/* Filter Section */}
       <div
         className={cn(
-          "w-full bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] absolute top-8 left-0 z-30 max-h-0 overflow-hidden transition-[max-height] ",
-          {
-            "max-h-[500px] rounded-bl-10 rounded-br-10": isOpen,
-            [`${overflow}`]: isOpen,
-          }
+          style.expandSection,
+          "expandSection",
+          isOpen ? style.isExpanded : "isExpanded",
+          { [`${overflow}`]: isOpen }
         )}
       >
-        <form
-          onSubmit={onSubmit}
-          className="pt-8 px-4 pb-4 space-y-3 border border-secondary-100 border-t-transparent rounded-bl-10 rounded-br-10"
-        >
+        <form onSubmit={onSubmit} className={cn(style.form, "form")}>
           {children}
-          <div className="flex justify-end gap-2.5">
+          <div className={style.buttonContainer}>
             {resetClick !== undefined && (
               <button
                 type="button"
                 onClick={resetClick}
-                className="rounded-[8px] bg-secondary-100 hover:bg-secondary p-1.5 group transition-colors"
-                style={{ height: "34px", width: "34px" }}
+                className={cn(style.resetBtn, "resetBtn group")}
               >
                 {iconReset("text-secondary group-hover:text-white")}
               </button>
             )}
-
-            <button
-              className={cn(
-                "relative px-3 h-[34px] text-base font-medium rounded-[8px] transition-colors disabled:bg-primary-100 disabled:pointer-events-none disabled:text-primary-500 w-36  bg-[#AE00B9] text-white"
-              )}
-              style={{ height: "34px" }}
-            >
-              Search
-            </button>
+            <button className={cn(style.searchBtn, "searchBtn")}>Search</button>
           </div>
         </form>
       </div>
