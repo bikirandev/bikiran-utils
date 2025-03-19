@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useRef, useState, ReactNode, MouseEvent, FC } from "react";
+import style from "./style/CurrencySelector.module.css";
+import { cn } from "../../lib/utils/cn";
 
 type TIconArrowProps = {
   className?: string;
@@ -105,10 +107,7 @@ const CurrencySelector: FC<TCurrencyDropdownProps> = ({
   }, [ref]);
 
   return (
-    <div
-      className={`size-full rounded-[25px] cursor-pointer relative ${className}`}
-      ref={ref}
-    >
+    <div className={cn(style.container, className, "container")} ref={ref}>
       {children ? (
         <button type="button" className="" onClick={handleMenuClick}>
           {children}
@@ -116,24 +115,28 @@ const CurrencySelector: FC<TCurrencyDropdownProps> = ({
       ) : (
         <button
           type="button"
-          className="w-full flex items-center justify-between"
+          className={cn(style.btn, "btn")}
           onClick={handleMenuClick}
         >
-          <h2 className="dropdown-title text-primary text-sm font-medium">
+          <h2 className={cn(style.currency, "currency")}>
             {isCustomHandler ? value : locale?.currency}
           </h2>
           <IconArrow
-            className={`arrow text-primary ${open ? "rotate-180" : "rotate-0"}`}
+            className={cn(
+              style.iconArrow,
+              "iconArrow",
+              open ? style.iconArrowOpen : "iconArrowOpen"
+            )}
           />
         </button>
       )}
 
       <div
-        className={`w-[80px] list bg-white shadow-lg absolute -left-2.5 rounded-[7px] ${
-          open
-            ? "top-0 -z-10 invisible"
-            : "active top-8 z-10 visible transition-all"
-        }`}
+        className={cn(
+          style.dropDown,
+          "dropDown",
+          open ? style.dropDownOpen : "dropDownOpen"
+        )}
       >
         {currencies &&
           currencies.map((item: any) => (

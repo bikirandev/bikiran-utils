@@ -1,0 +1,21 @@
+.container {
+  @apply size-full rounded-[25px] cursor-pointer relative;
+}
+.btn {
+  @apply w-full flex items-center justify-between;
+}
+.currency {
+  @apply text-primary text-sm font-medium;
+}
+.iconArrow {
+  @apply text-primary rotate-0;
+}
+.iconArrowOpen {
+  @apply rotate-180;
+}
+.dropDown {
+  @apply w-[80px]  bg-white shadow-lg absolute -left-2.5 rounded-[7px] top-8 z-10 visible transition-all;
+}
+.dropDownOpen {
+  @apply top-0 -z-10 invisible;
+}
