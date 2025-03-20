@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { IconUser } from "./icons/icons";
+import CopyWrapper from "../copy-wrapper/CopyWrapper";
 
 const UserInfoComp: FC<{
   photoUrl?: string;
@@ -27,10 +28,10 @@ const UserInfoComp: FC<{
 
         <div className="flex flex-col">
           <div className="full-name text-primary text-sm 2xl:text-base font-medium">
-            {name || "-------"}
+            <CopyWrapper content={name || "----"} />
           </div>
           <div className="full-name text-primary-700 text-[13px] 2xl:text-sm leading-[19px] font-normal">
-            {email || "--------"}
+            <CopyWrapper content={email || "--------"} />
           </div>
         </div>
       </div>
