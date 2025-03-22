@@ -1,6 +1,6 @@
 "use client";
 import { FC } from "react";
-import { LoginFill } from "./icons";
+import { UserIcon } from "./icons";
 
 const LoginBtn: FC<{
   loginUrl: string;
@@ -16,7 +16,7 @@ const LoginBtn: FC<{
         className="block size-7 cursor-pointer"
         href={loginUrl}
       >
-        <LoginFill />
+        <UserIcon />
       </LinkComponent>
     );
   }
