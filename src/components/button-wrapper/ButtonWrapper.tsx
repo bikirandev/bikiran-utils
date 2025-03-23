@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import { cn } from "../../lib/utils/cn";
 import { iconLoading } from "./icons/icon";
 import style from "./style/style.module.css";
