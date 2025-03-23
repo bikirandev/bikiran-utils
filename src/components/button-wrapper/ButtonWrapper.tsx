@@ -36,7 +36,7 @@ const ButtonWrapper: React.FC<ButtonWrapperProps> = ({
 }) => {
   return (
     <button
-      className={cn(style.btnClass, className)}
+      className={cn(style.btnClass, "group", className)}
       onClick={onClick}
       disabled={disabled}
     >
@@ -46,7 +46,7 @@ const ButtonWrapper: React.FC<ButtonWrapperProps> = ({
         height={100}
         alt="sync"
         sizes="100vw"
-        className={cn(style.blockIcon, "blockIcon")}
+        className={cn(style.blockIcon, "group-hover:hidden", "blockIcon")}
       />
       <ImageComponent
         src={hoverIcon}
@@ -54,7 +54,7 @@ const ButtonWrapper: React.FC<ButtonWrapperProps> = ({
         height={100}
         alt="sync"
         sizes="100vw"
-        className={cn(style.hoverIcon, "hoverIcon")}
+        className={cn(style.hoverIcon, "group-hover:block", "hoverIcon")}
       />
       {loading ? (
         <div className={cn(style.btnLoading, "btnLoading")}>
