@@ -18,7 +18,6 @@ const SearchInput: FC<TProps> = ({
   searchedValue,
   placeholder,
 }) => {
-  console.log(isOpen);
 
   return (
     <div
