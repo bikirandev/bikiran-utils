@@ -120,6 +120,7 @@ const FilterBarWrapper: FC<TProps> = ({
       className={cn(
         style.filterBarContainer,
         "filterBarContainer",
+        className,
         disabled
           ? style.filterBarContainerDisabled
           : "filterBarContainerDisabled"
@@ -140,7 +141,7 @@ const FilterBarWrapper: FC<TProps> = ({
         className={cn(
           style.expandSection,
           "expandSection",
-          isOpen ? `${style.isExpanded} ${className} isExpanded` : ""
+          isOpen ? `${style.isExpanded} isExpanded` : ""
         )}
       >
         <form onSubmit={onSubmit} className={cn(style.form, "form")}>

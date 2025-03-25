@@ -8,7 +8,7 @@
   @apply w-full bg-white shadow-[0_7px_20px_rgb(174_0_185/5%)] absolute top-8 left-0 z-30 max-h-0 overflow-hidden transition-[max-height];
 }
 .isExpanded {
-  @apply max-h-[600px] rounded-bl-10 rounded-br-10;
+  @apply max-h-[600px] rounded-bl-10 rounded-br-10 overflow-visible;
 }
 .form {
   @apply pt-8 px-4 pb-4 space-y-4 border border-secondary-100 border-t-transparent rounded-bl-10 rounded-br-10;
