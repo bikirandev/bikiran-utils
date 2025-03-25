@@ -11,7 +11,7 @@ type TProps = {
   children: React.ReactNode;
   placeholder?: string;
   disabled?: boolean;
-  overflow?: string;
+  className?: string;
 };
 
 const getStrValue = (filter: Record<string, any>) => {
@@ -46,7 +46,7 @@ const FilterBarWrapper: FC<TProps> = ({
   placeholder = "Search anything...",
   onSearch,
   resetClick,
-  overflow,
+  className,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   // get queries
@@ -140,8 +140,7 @@ const FilterBarWrapper: FC<TProps> = ({
         className={cn(
           style.expandSection,
           "expandSection",
-          isOpen ? style.isExpanded : "isExpanded",
-          { [`${overflow}`]: isOpen }
+          isOpen ? `${style.isExpanded} ${className} isExpanded` : ""
         )}
       >
         <form onSubmit={onSubmit} className={cn(style.form, "form")}>
