@@ -15,7 +15,7 @@
 }
 
 .optionLink {
-  @apply group flex items-center gap-2.5 px-[15px] py-[11px] bg-white relative;
+  @apply flex items-center gap-2.5 px-[15px] py-[11px] bg-white relative;
 }
 
 .optionIcon {

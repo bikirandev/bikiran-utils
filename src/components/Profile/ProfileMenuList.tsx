@@ -83,7 +83,7 @@ const Option: React.FC<TMenu> = ({
     <LinkComponent
       href={href}
       target="_blank"
-      className={cn("optionLink", className, style.optionLink)}
+      className={cn("optionLink group", className, style.optionLink)}
     >
       <span className={cn("optionIcon", style.optionIcon)}>{icon}</span>
       <span className={cn("optionTitle", style.optionTitle)}>{title}</span>
