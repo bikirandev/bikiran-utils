@@ -1,0 +1,6 @@
+.loginBtn {
+  @apply bg-secondary-100 text-secondary rounded-lg leading-6 text-base font-normal p-2 w-24 hover:text-white hover:bg-secondary transition;
+}
+.userBtn {
+  @apply block size-7 cursor-pointer;
+}

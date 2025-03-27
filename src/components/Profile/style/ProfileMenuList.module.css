@@ -1,0 +1,50 @@
+.optionBillingContainer {
+  @apply flex items-center gap-[10px] px-[15px] py-[11px] bg-white;
+}
+.billingIcon {
+  @apply size-7;
+}
+.billingText {
+  @apply text-primary-900 font-normal text-base;
+}
+.billingSubmenuLinks {
+  @apply text-primary-700 hover:text-secondary-700 font-normal text-[13px] transition-all relative;
+}
+.linkContainer {
+  @apply flex items-center gap-2;
+}
+
+.optionLink {
+  @apply group flex items-center gap-2.5 px-[15px] py-[11px] bg-white relative;
+}
+
+.optionIcon {
+  @apply size-7;
+}
+.optionTitle {
+  @apply text-primary-900 font-normal text-base;
+}
+
+.badge {
+  @apply size-6.5 rounded-full flex justify-center items-center bg-[#FF3B30] absolute right-2.5 top-1/2 transform -translate-y-1/2;
+}
+
+.badgeSpan {
+  @apply text-white text-sm font-medium;
+}
+
+.menuSection {
+  @apply flex flex-col gap-0.5;
+}
+
+.firstOption {
+  @apply rounded-[12px_12px_3px_3px];
+}
+
+.secondOption {
+  @apply rounded-[3px];
+}
+
+.lastOption {
+  @apply rounded-[0px_0px_12px_12px];
+}

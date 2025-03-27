@@ -1,0 +1,26 @@
+.userInformation {
+  @apply flex justify-between items-center;
+}
+.userInformationContainer {
+  @apply flex items-center gap-[14px];
+}
+.userImageContainer {
+  @apply size-[70px] overflow-hidden;
+}
+.userImage {
+  @apply rounded-full size-full;
+}
+.detailsContainer {
+  @apply flex flex-col;
+}
+.username {
+  @apply full-name text-primary text-xl font-medium;
+}
+
+.userEmail {
+  @apply full-name text-primary-700 text-base font-normal;
+}
+
+.logoutBtn {
+  @apply size-10 p-2 bg-primary-100 sm:bg-transparent sm:hover:bg-primary-100 rounded-full transition-colors;
+}

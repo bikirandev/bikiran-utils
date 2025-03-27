@@ -2,6 +2,8 @@ import React from "react";
 import LoginBtn from "./LoginBtn";
 import { LoadingRoundDottedIcon } from "./icons";
 import { TAuthInfo } from "./authTypes";
+import { cn } from "../../lib/utils/cn";
+import style from "./style/ProfileView.module.css";
 
 type TProfileView = {
   auth: TAuthInfo;
@@ -25,10 +27,10 @@ const ProfileView: React.FC<TProfileView> = ({
   SIZE_SM,
 }) => {
   return (
-    <div className="profile_view w-auto lg:w-full h-8 sm:h-10 flex items-center">
+    <div className={cn("profileContainer", style.profileContainer)}>
       <AuthCompWrapper auth={auth}>
         <div
-          className="size-8 sm:size-10 rounded-full border border-[#AE00B9] relative"
+          className={cn("imageUserContainer", style.imageUserContainer)}
           onClick={onClick}
         >
           <ImageComponent
@@ -37,7 +39,7 @@ const ProfileView: React.FC<TProfileView> = ({
             width={100}
             height={100}
             sizes="100vw"
-            className="rounded-full size-full"
+            className={cn("imageUser", style.imageUser)}
           />
 
           {/* Notification Bullet point */}
@@ -49,7 +51,11 @@ const ProfileView: React.FC<TProfileView> = ({
           windowWidth={windowWidth}
           LinkComponent={LinkComponent}
         />
-        <LinkComponent href="#" type="button" className="size-10">
+        <LinkComponent
+          href="#"
+          type="button"
+          className={cn("linkBtn", style.linkBtn)}
+        >
           <LoadingRoundDottedIcon />
         </LinkComponent>
       </AuthCompWrapper>

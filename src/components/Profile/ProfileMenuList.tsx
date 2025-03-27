@@ -6,6 +6,8 @@ import {
   ContactSupportIcon,
 } from "./icons";
 import { getAccountUrl, getSupportUrl } from "../../lib/utils/Env";
+import style from "./style/ProfileMenuList.module.css";
+import { cn } from "../../lib/utils/cn";
 
 const billingSubmenu = [
   {
@@ -35,22 +37,22 @@ type TMenu = {
 
 const OptionBilling: FC<{ LinkComponent: any }> = ({ LinkComponent }) => {
   return (
-    <div className="flex items-center gap-2.5 px-[15px] py-[11px] bg-white">
-      <div className="size-7">
+    <div className={cn(style.optionBillingContainer, "optionBillingContainer")}>
+      <div className={cn("billingIcon", style.billingIcon)}>
         <BillingInfoIcon />
       </div>
       <div className="">
-        <div className="text-primary-900 font-normal text-base">
+        <div className={cn("billingText", style.billingText)}>
           Billings Information
         </div>
-        <div className="flex items-center gap-2 ML">
+        <div className={cn("linkContainer ML", style.linkContainer)}>
           {billingSubmenu.map(({ title, link }, index) => {
             return (
               <LinkComponent
                 key={title}
                 href={`${getAccountUrl()}${link}`}
                 target="_blank"
-                className="text-primary-700 hover:text-secondary-700 font-normal text-[13px] transition-all relative"
+                className={cn("billingSubmenuLinks", style.billingSubmenuLinks)}
               >
                 {index !== 0 && <span>&bull; &nbsp;</span>}
                 {title}
@@ -81,14 +83,14 @@ const Option: React.FC<TMenu> = ({
     <LinkComponent
       href={href}
       target="_blank"
-      className={`group flex items-center gap-2.5 px-[15px] py-[11px] bg-white relative ${className}`}
+      className={cn("optionLink", className, style.optionLink)}
     >
-      <span className="size-7">{icon}</span>
-      <span className="text-primary-900 font-normal text-base">{title}</span>
+      <span className={cn("optionIcon", style.optionIcon)}>{icon}</span>
+      <span className={cn("optionTitle", style.optionTitle)}>{title}</span>
 
       {notifCount !== undefined && (
-        <div className="size-6.5 rounded-full flex justify-center items-center bg-[#FF3B30] absolute right-2.5 top-1/2 transform -translate-y-1/2">
-          <span className="text-white text-sm font-medium">15</span>
+        <div className={cn("badge", style.badge)}>
+          <span className={cn("badgeSpan", style.badgeSpan)}>15</span>
         </div>
       )}
     </LinkComponent>
@@ -97,29 +99,27 @@ const Option: React.FC<TMenu> = ({
 
 const ProfileMenuList: FC<{ LinkComponent: any }> = ({ LinkComponent }) => {
   return (
-    <div className="menu-section flex flex-col gap-0.5">
+    <div className={cn("menuSection", style.menuSection)}>
       <Option
         path="user/activities"
         icon={<ActivityHistoryIcon />}
         title="Activity History"
-        className="rounded-[12px_12px_3px_3px]"
+        className={cn("firstOption", style.firstOption)}
         LinkComponent={LinkComponent}
       />
       <Option
         path="user/notifications"
         icon={<NotificationIcon />}
         title="Notifications"
-        className="rounded-[3px]"
+        className={cn("secondOption", style.secondOption)}
         LinkComponent={LinkComponent}
       />
-
       <OptionBilling LinkComponent={LinkComponent} />
-
       <Option
         fullPath={getSupportUrl()}
         icon={<ContactSupportIcon />}
         title="Contact Support"
-        className="rounded-[0px_0px_12px_12px]"
+        className={cn("lastOption", style.lastOption)}
         LinkComponent={LinkComponent}
       />
     </div>

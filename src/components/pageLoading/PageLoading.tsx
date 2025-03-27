@@ -1,7 +1,9 @@
+import style from "./style/PageLoading.module.css";
+
 const PageLoading = () => {
   return (
-    <div className="fixed top-0 left-0 size-full z-50 bg-white">
-      <div className="flex items-center justify-center size-full">
+    <div className={style.container}>
+      <div className={style.content}>
         <svg
           style={{ margin: "auto", background: "#fff", display: "block" }}
           width="200px"

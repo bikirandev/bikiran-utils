@@ -1,6 +1,7 @@
 "use client";
 import { FC } from "react";
 import { UserIcon } from "./icons";
+import style from "./style/LoginBtn.module.css";
 
 const LoginBtn: FC<{
   loginUrl: string;
@@ -11,21 +12,13 @@ const LoginBtn: FC<{
   if (!windowWidth) return null;
   if (windowWidth && windowWidth < SIZE_SM) {
     return (
-      <LinkComponent
-        type="button"
-        className="block size-7 cursor-pointer"
-        href={loginUrl}
-      >
+      <LinkComponent type="button" className={style.userBtn} href={loginUrl}>
         <UserIcon />
       </LinkComponent>
     );
   }
   return (
-    <LinkComponent
-      type="button"
-      href={loginUrl}
-      className="bg-secondary-100 text-secondary rounded-lg leading-6 text-base font-normal p-2 w-24 hover:text-white hover:bg-secondary transition"
-    >
+    <LinkComponent type="button" href={loginUrl} className={style.loginBtn}>
       Login
     </LinkComponent>
   );

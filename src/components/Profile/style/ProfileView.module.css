@@ -1,0 +1,12 @@
+.profileContainer {
+  @apply w-auto lg:w-full h-8 sm:h-10 flex items-center;
+}
+.imageUserContainer {
+  @apply size-8 sm:size-10 rounded-full border border-[#AE00B9] relative;
+}
+.imageUser {
+  @apply rounded-full size-full;
+}
+.linkBtn {
+  @apply size-10;
+}

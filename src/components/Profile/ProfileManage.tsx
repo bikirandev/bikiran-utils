@@ -2,6 +2,8 @@
 import { useState, useRef, useEffect, FC } from "react";
 import ProfileView from "./ProfileView";
 import ProfileMenuPopup from "./ProfileMenuPopup";
+import { cn } from "../../lib/utils/cn";
+import style from "./style/ProfileManage.module.css";
 
 const ProfileManage: FC<{
   LinkComponent: any;
@@ -56,8 +58,8 @@ const ProfileManage: FC<{
   }, []);
 
   return (
-    <div className="profile-manage relative z-50" ref={bodyRef}>
-      <div className="flex items-center gap-2">
+    <div className={cn("profile-manage", style.profileManage)} ref={bodyRef}>
+      <div className={cn("content", style.content)}>
         <ProfileView
           auth={authInfo}
           onClick={() => setShowMenu((prev) => !prev)}

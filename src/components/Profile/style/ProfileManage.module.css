@@ -1,0 +1,6 @@
+.profileManage {
+  @apply relative z-50;
+}
+.content {
+  @apply flex items-center gap-2;
+}

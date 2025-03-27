@@ -4,6 +4,8 @@ import ProfileMenuList from "./ProfileMenuList";
 import ProfileUserInformation from "./ProfileUserInformation";
 import { getAccountUrl, getBikiranUrl } from "../../lib/utils/Env";
 import { TAuthInfo } from "./authTypes";
+import { cn } from "../../lib/utils/cn";
+import style from "./style/ProfileMenuPopup.module.css";
 
 type TProps = {
   show: boolean;
@@ -35,7 +37,7 @@ const CloseBtn: FC<{ closeClick: () => void }> = ({ closeClick }) => {
     <button
       type="button"
       onClick={closeClick}
-      className="absolute -top-12 -right-2 size-8 p-2 border rounded-full transition-colors block sm:hidden"
+      className={cn("closeBtn", style.closeBtn)}
     >
       <CrossIcon />
     </button>
@@ -52,20 +54,20 @@ const ProfileMenuPopup: FC<TProps> = ({
 }) => {
   if (!show) return null;
   return (
-    <div className="w-full sm:w-100 h-full sm:h-[440px] fixed z-50 sm:absolute right-0 top-0 sm:top-[55px] sm:rounded-30 bg-[#F7F3F8] shadow-[0px_0px_30px_0px_rgba(19,15,64,0.20)]">
-      <div className="size-full p-5">
-        <div className="flex flex-col justify-center gap-5 mt-10 sm:mt-0 relative">
+    <div className={cn(style.popupContainer, "popupContainer")}>
+      <div className={cn("popupContent", style.popupContent)}>
+        <div className={cn("popupTopSection", style.popupTopSection)}>
           <ProfileUserInformation
             auth={authInfo}
             logout={logout}
             ImageComponent={ImageComponent}
           />
 
-          <div className="w-full flex justify-center items-center">
+          <div className={cn("manageLinkContainer", style.manageLinkContainer)}>
             <LinkComponent
               href={`${getAccountUrl()}/user/personal-info`}
               target="_blank"
-              className="p-[7px_16px] border border-[#D780DC] rounded-10 text-[#AE00B9] text-center"
+              className={cn("manageLink", style.manageLink)}
             >
               Manage Your Bikiran Account
             </LinkComponent>
@@ -78,19 +80,24 @@ const ProfileMenuPopup: FC<TProps> = ({
         </div>
 
         {/* Terms and Conditions links */}
-        <div className="flex items-center justify-center text-xs text-primary mt-3">
+        <div className={cn("termsAndCondition", style.termsAndCondition)}>
           {termsArr?.map((item: TTerm, index: number) => (
             <div key={item.title}>
               <a
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:bg-primary-100 px-[6px] py-[2px] rounded-5 transition-all"
+                className={cn(
+                  "termsAndConditionLinks",
+                  style.termsAndConditionLinks
+                )}
               >
                 {item.title}
               </a>
               {index === 0 ? (
-                <span className="text-primary mx-1">&#8226;</span>
+                <span className={cn("indexSpan", style.indexSpan)}>
+                  &#8226;
+                </span>
               ) : null}
             </div>
           ))}
