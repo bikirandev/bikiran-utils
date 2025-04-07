@@ -54,7 +54,7 @@
 }
 
 .arrowTop {
-  @apply left-4 bottom-2 transform rotate-0 -translate-x-1/2;
+  @apply left-1/2 bottom-[5px] transform -translate-x-1/2 rotate-0;
 }
 
 .arrowBottom {
