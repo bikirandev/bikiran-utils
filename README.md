@@ -1,102 +1,172 @@
 # 7502NPM-Bikiran-Utils
 
-# Dependencies
+## Overview
 
-**1.clsx**
-**2.tailwind-merge**
-**3.Nextjs**
+A collection of utility components specifically developed for our organization's internal projects. While primarily tailored to our needs, others may find some components useful.
 
-# IMPORTANT NOTE
+⚠️ **Important Note**: This package was optimized for our specific use cases and may not work as expected in all projects. Use with caution.
 
-This package was specifically developed and tailored for our organization’s projects. It may not be particularly helpful for your needs, but you’re welcome to try it out. Just keep in mind that it could potentially break your project—or it might work exactly as intended.
+## Dependencies
 
-## 🎨 **Available Components**
+- `clsx`
+- `tailwind-merge`
+- `Next.js`
 
-```tsx
-<Pagination  />
-<FilterBarWrapper />
-<ServicesPopup />
-<ButtonWrapper />
-<CurrencySelector />
-<CustomSidebar/>
-<PageLoading />
-<LoadingComp  />
-<CookiesAcceptPopup />
-<ProfileManage />
-<TooltipUserInfo />
-<UserInfoComp />
-```
-
-## Pagination
-
-You need to write this code where you will use your pagination .This will Check query Params and create a new url . which is important for this component
-
-```tsx
-const pathname = usePathname();
-const searchParams = useSearchParams();
-const currentPage = Number(searchParams.get("CurrentPage"));
-const queries = new URLSearchParams(searchParams.toString());
-
-// Make URL with existing queries if any
-const mkUrl = (number: number) => {
-  queries.set("CurrentPage", number.toString());
-  return `${pathname}?${queries.toString()}`;
-};
-```
-
-# Props and Usage
-
-## Props
-
-| prop        | type                                           | description                                     | default value           | priority   |
-| ----------- | ---------------------------------------------- | ----------------------------------------------- | ----------------------- | ---------- |
-| data        | TPagination                                    | this is an object                               | {} as TPagination       | ✅Required |
-| disabled    | boolean                                        | determine is that pagination is disabled or not | false                   | ❌Optional |
-| currentPage | number                                         | Which page it is now                            | 0                       | ✅Required |
-| mkUrl       | (page: number) => string                       | add query params                                | (page:number) => string | ✅Required |
-| link        | FC<{ href: string; children: React.ReactNode } | Pass the link tag here                          | null                    | ✅Required |
-
-## Usage
-
-```tsx
-import { usePathname, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import Pagination from "your-pagination-package";
-
-const MyPagination = ({ data }) => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const currentPage = Number(searchParams.get("CurrentPage")) || 1;
-
-  const makeUrl = (num: number) => {
-    const queries = new URLSearchParams(searchParams.toString());
-    queries.set("CurrentPage", num.toString());
-    return `${pathname}?${queries.toString()}`;
-  };
-
-  return (
-    <Pagination
-      data={data}
-      currentPage={currentPage}
-      makeUrl={makeUrl}
-      LinkComponent={Link}
-    />
-  );
-};
-```
-
-## 🔗 **More Details**
-
-For more details, visit the [GitHub repository](https://github.com/bikirandev/7502NPM-Bikiran-Utils/tree/main/documents).
+Perfect! Here's how you can update the **"Available Components"** section so that each component is a clickable item linking to its dedicated documentation page in your GitHub wiki:
 
 ---
 
-## 🔗 **License**
+## Available Components
 
-This project is licensed under the MIT License.
+Each component below links to its own documentation page for detailed usage:
+
+1. [Pagination]()
+2. [FilterBarWrapper]()
+3. [ServicesPopup]()
+4. [ButtonWrapper]()
+5. [CurrencySelector]()
+6. [CustomSidebar]()
+7. [PageLoading]()
+8. [LoadingComp]()
+9. [CookiesAcceptPopup]()
+10. [ProfileManage]()
+11. [TooltipUserInfo]()
+12. [UserInfoComp]()
+
+## Getting Started
+
+### Installation
+
+Install the package via **npm**:
+
+```bash
+npm install 7502NPM-Bikiran-Utils
+```
+
+Or via **yarn**:
+
+```bash
+yarn add 7502NPM-Bikiran-Utils
+```
+
+Got it! Here's the updated **"Getting Started"** section that includes a **realistic example Tailwind config** showing how users can define `primary` and `secondary` with extended color scales using CSS variables—just like your package expects.
 
 ---
 
-## 👨‍💻 **Author**
+### How It Works
 
-Created by [bikiran.com](https://bikiran.com/). Feel free to contribute!
+This package is designed to **seamlessly inherit your project’s Tailwind CSS theme**. It automatically uses your existing:
+
+- **Primary/secondary colors**
+- **Font families**
+- **Spacing scale**
+- **Other design tokens**
+
+No extra configuration is needed—just ensure your `tailwind.config.js` is properly set up.
+
+#### Example:
+
+Your `tailwind.config.js` should define colors using CSS variables like this:
+
+```js
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        DEFAULT: "var(--primary)",
+        50: "var(--primary-50)",
+        100: "var(--primary-100)",
+        200: "var(--primary-200)",
+        300: "var(--primary-300)",
+        500: "var(--primary-500)",
+        700: "var(--primary-700)",
+        900: "var(--primary-900)",
+      },
+      secondary: {
+        DEFAULT: "var(--secondary)",
+        50: "var(--secondary-50)",
+        100: "var(--secondary-100)",
+        300: "var(--secondary-300)",
+        500: "var(--secondary-500)",
+        700: "var(--secondary-700)",
+        900: "var(--secondary-900)",
+      },
+    },
+  },
+}
+```
+
+This setup allows all components—like `<ButtonWrapper>` and `<CurrencySelector>`—to **automatically inherit your color scheme** across different shades.
+
+### Basic Usage
+
+1. **Import Components**
+
+   ```tsx
+   import { ButtonWrapper, PageLoading } from "7502NPM-Bikiran-Utils";
+   ```
+
+2. **Use with Your Theme**
+   ```tsx
+   // Buttons will adopt your project's `primary`/`secondary` colors
+   <ButtonWrapper variant="primary">Click Me</ButtonWrapper>
+   ```
+
+### Customization (Optional)
+
+To override styles:
+
+- Use `className` props (e.g., `<ButtonWrapper className="bg-red-500">`)
+- Extend your Tailwind config (recommended for consistency)
+
+### Requirements
+
+- Next.js 14+
+- Tailwind CSS v3+ (**must** have `primary`/`secondary` colors defined)
+
+## Documentation
+
+For complete documentation and usage examples, please see:
+[Components Documentation](https://github.com/bikirandev/bikiran-utils/wiki/1.-Home)
+
+Sure! Here's just the **"How to Contribute"** section in Markdown:
+
+## 🤝 How to Contribute
+
+We welcome contributions! To contribute to the package :
+
+1. **Fork the repository** and clone your fork locally.
+2. **Create a new branch** for your feature or bugfix:
+   ```
+   git checkout -b my-feature-name
+   ```
+3. Make your changes in supporting files.
+4. If you’re adding a feature or behavior, consider updating the docs or usage example.
+5. Commit your changes:
+   ```
+   git commit -m "feat: add awesome feature"
+   ```
+6. Push to your fork:
+   ```
+   git push origin my-feature-name
+   ```
+7. **Open a Pull Request** with a clear title and description.
+
+### 🧪 Before submitting:
+
+- Run and test the component in your app.
+- Check for console errors or style breakages.
+- Use consistent naming and follow the existing code style.
+
+Thanks for your contribution! ❤️
+
+```
+
+## License
+
+MIT License
+
+## Author
+
+Developed by [Bikiran](https://bikiran.com/)
+```
