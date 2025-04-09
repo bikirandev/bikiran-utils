@@ -20,18 +20,18 @@ Perfect! Here's how you can update the **"Available Components"** section so tha
 
 Each component below links to its own documentation page for detailed usage:
 
-1. [Pagination]()
-2. [FilterBarWrapper]()
-3. [ServicesPopup]()
-4. [ButtonWrapper]()
-5. [CurrencySelector]()
-6. [CustomSidebar]()
-7. [PageLoading]()
-8. [LoadingComp]()
-9. [CookiesAcceptPopup]()
-10. [ProfileManage]()
-11. [TooltipUserInfo]()
-12. [UserInfoComp]()
+1. [Pagination](https://github.com/bikirandev/bikiran-utils/wiki/02.-Pagination)
+2. [FilterBarWrapper](https://github.com/bikirandev/bikiran-utils/wiki/03.-FilterBarWrapper)
+3. [ServicesPopup](https://github.com/bikirandev/bikiran-utils/wiki/05.-ServicePopup)
+4. [ButtonWrapper](https://github.com/bikirandev/bikiran-utils/wiki/04.-ButtonWrapper)
+5. [CurrencySelector](https://github.com/bikirandev/bikiran-utils/wiki/06.-CurrencySelector)
+6. [CustomSidebar](https://github.com/bikirandev/bikiran-utils/wiki/07.-CustomSidebar)
+7. [PageLoading](https://github.com/bikirandev/bikiran-utils/wiki/08.-PageLoading)
+8. [LoadingComp](https://github.com/bikirandev/bikiran-utils/wiki/09.-LoadingComp)
+9. [CookiesAcceptPopup](https://github.com/bikirandev/bikiran-utils/wiki/10.-CookiesAcceptPopup)
+10. [ProfileManage](https://github.com/bikirandev/bikiran-utils/wiki/11.-ProfileManage)
+11. [TooltipUserInfo](https://github.com/bikirandev/bikiran-utils/wiki/12.-TooltipUserInfo)
+12. [UserInfoComp](https://github.com/bikirandev/bikiran-utils/wiki/13.-UserInfoComp)
 
 ## Getting Started
 
@@ -40,16 +40,14 @@ Each component below links to its own documentation page for detailed usage:
 Install the package via **npm**:
 
 ```bash
-npm install 7502NPM-Bikiran-Utils
+npm install @bikiran/utils
 ```
 
 Or via **yarn**:
 
 ```bash
-yarn add 7502NPM-Bikiran-Utils
+yarn add @bikiran/utils
 ```
-
-Got it! Here's the updated **"Getting Started"** section that includes a **realistic example Tailwind config** showing how users can define `primary` and `secondary` with extended color scales using CSS variables—just like your package expects.
 
 ---
 
@@ -127,7 +125,7 @@ To override styles:
 ## Documentation
 
 For complete documentation and usage examples, please see:
-[Components Documentation](https://github.com/bikirandev/bikiran-utils/wiki/1.-Home)
+[Components Documentation](https://github.com/bikirandev/bikiran-utils/wiki/Home)
 
 Sure! Here's just the **"How to Contribute"** section in Markdown:
 
@@ -160,8 +158,6 @@ We welcome contributions! To contribute to the package :
 
 Thanks for your contribution! ❤️
 
-```
-
 ## License
 
 MIT License
@@ -169,4 +165,4 @@ MIT License
 ## Author
 
 Developed by [Bikiran](https://bikiran.com/)
-```
+
