@@ -1,6 +1,6 @@
 {
   "name": "@bikiran/utils",
-  "version": "1.18.2",
+  "version": "2.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -29,32 +29,32 @@
   "description": "A simple and reusable React input component library",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bikirandev/7501NPM-Bikiran-Inputs.git"
+    "url": "https://github.com/bikirandev/bikiran-utils.git"
   },
   "bugs": {
-    "url": "https://github.com/bikirandev/7501NPM-Bikiran-Inputs/issues"
+    "url": "https://github.com/bikirandev/bikiran-utils/issues"
   },
-  "homepage": "https://github.com/bikirandev/7501NPM-Bikiran-Inputs#readme",
-  "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
-  "devDependencies": {
-    "@testing-library/react": "^16.2.0",
-    "@types/node": "^22.13.1",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react": "^4.3.4",
-    "copyfiles": "^2.4.1",
-    "jsdom": "^23.0.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "typescript": "^5.7.3",
-    "vite": "^6.1.0",
-    "vitest": "^1.0.4"
-  },
+  "homepage": "https://github.com/bikirandev/bikiran-utils#readme",
   "dependencies": {
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.0.1"
+    "tailwind-merge": "^3.2.0"
+  },
+  "peerDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^22.15.2",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "copyfiles": "^2.4.1",
+    "jsdom": "^26.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.3",
+    "vitest": "^3.1.2"
   }
 }
