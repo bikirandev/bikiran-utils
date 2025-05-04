@@ -1,6 +1,6 @@
 {
   "name": "@bikiran/utils",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "vite example",
-    "build": "tsc && echo 'Running copyfiles...' && copyfiles src/**/*.{js,ts,svg,css} dist --up 1 && echo 'Creating package.json...' && echo {\"type\":\"module\"} > dist/package.json",
+    "build": "tsc && echo 'Running copyfiles...' && copyfiles src/**/*.{js,ts,svg,css} dist --up 1 && echo \"{\\\"type\\\": \\\"module\\\"}\" > dist/package.json",
     "vite-build": "vite build",
     "preview": "vite preview example",
     "prepublishOnly": "npm run build",
