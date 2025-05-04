@@ -11,7 +11,11 @@ const CopyWrapper: FC<{ content: any; className?: string }> = ({
   return (
     <button
       className={cn("flex items-center gap-1 group", className)}
-      onClick={() => copy(content)}
+      onClick={(ev) => {
+        ev.stopPropagation();
+        ev.preventDefault();
+        copy(content);
+      }}
     >
       <div className="text-sm">{content}</div>
       {isCopied ? (
