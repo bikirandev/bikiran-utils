@@ -10,7 +10,10 @@ const CopyWrapper: FC<{ content: any; className?: string }> = ({
   const { copy, isCopied } = Copy();
   return (
     <button
-      className={cn("flex text-sm items-center gap-1 group", className)}
+      className={cn(
+        "flex text-sm items-center gap-1 group relative",
+        className
+      )}
       onClick={(ev) => {
         ev.stopPropagation();
         ev.preventDefault();
@@ -19,9 +22,11 @@ const CopyWrapper: FC<{ content: any; className?: string }> = ({
     >
       <div className="">{content}</div>
       {isCopied ? (
-        <div>{iconTick()}</div>
+        <div className="absolute -right-5">{iconTick()}</div>
       ) : (
-        <div className="group-hover:block hidden">{iconCopy()}</div>
+        <div className="hidden group-hover:block absolute -right-5">
+          {iconCopy()}
+        </div>
       )}
     </button>
   );
