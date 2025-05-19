@@ -22,13 +22,13 @@ const CopyWrapper: FC<{ content: any; className?: string }> = ({
     >
       <div className="">{content}</div>
       {isCopied ? (
-        <div className="absolute" style={{ right: "-5px" }}>
+        <div className="absolute" style={{ right: "-20px" }}>
           {iconTick()}
         </div>
       ) : (
         <div
           className="hidden group-hover:block absolute"
-          style={{ right: "-5px" }}
+          style={{ right: "-20px" }}
         >
           {iconCopy()}
         </div>
