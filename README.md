@@ -1,4 +1,9 @@
-# 7502NPM-Bikiran-Utils
+[![npm Version](https://img.shields.io/npm/v/@bikiran/utils.svg?style=flat-square)](https://www.npmjs.com/package/@bikiran/utils)
+[![npm Downloads](https://img.shields.io/npm/dt/@bikiran/utils.svg?style=flat-square)](https://www.npmjs.com/package/@bikiran/utils)
+[![GitHub License](https://img.shields.io/github/license/bikirandev/bikiran-utils.svg?style=flat-square)](https://github.com/bikirandev/bikiran-utils/blob/main/LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/bikirandev/bikiran-utils.svg?style=flat-square)](https://github.com/bikirandev/bikiran-utils/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/bikirandev/bikiran-utils.svg?style=flat-square)](https://github.com/bikirandev/bikiran-utils/stargazers)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/bikirandev/bikiran-utils.svg?style=flat-square)](https://github.com/bikirandev/bikiran-utils/commits/main)
 
 ## Overview
 
