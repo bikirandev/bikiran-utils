@@ -1,5 +1,5 @@
 .container {
-  @apply max-w-[800px] w-full h-full fixed top-[50px] right-0 z-[1] transition-[transform_right] transform translate-x-full;
+  @apply max-w-[800px] w-full h-full fixed top-[50px] right-0 z-[1] transition-[transform_right] transform translate-x-[105%];
 }
 .type {
   @apply translate-x-0;
