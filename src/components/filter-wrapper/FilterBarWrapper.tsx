@@ -9,9 +9,10 @@ type TProps = {
   onSearch: (search: string) => void;
   resetClick?: () => void;
   children: React.ReactNode;
-  placeholder?: string;
+  placeholder: string;
   disabled?: boolean;
   className?: string;
+  outsideClick: boolean;
 };
 
 const getStrValue = (filter: Record<string, any>) => {
@@ -47,6 +48,7 @@ const FilterBarWrapper: FC<TProps> = ({
   onSearch,
   resetClick,
   className,
+  outsideClick = true,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   // get queries
@@ -77,24 +79,26 @@ const FilterBarWrapper: FC<TProps> = ({
 
   // outside click
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      const isSelectClick =
-        (e.target as Element)?.closest('[role="combobox"]') ||
-        (e.target as Element)?.closest('[role="listbox"]');
+    if (outsideClick) {
+      const handleClickOutside = (e: MouseEvent) => {
+        const isSelectClick =
+          (e.target as Element)?.closest('[role="combobox"]') ||
+          (e.target as Element)?.closest('[role="listbox"]');
 
-      if (
-        ref.current &&
-        !ref.current.contains(e.target as Node) &&
-        !isSelectClick
-      ) {
-        setIsFilterOpen(false);
-        setIsFocus(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+        if (
+          ref.current &&
+          !ref.current.contains(e.target as Node) &&
+          !isSelectClick
+        ) {
+          setIsFilterOpen(false);
+          setIsFocus(false);
+        }
+      };
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
   }, [ref]);
 
   const isOpen = isFilterOpen || isFocus;
