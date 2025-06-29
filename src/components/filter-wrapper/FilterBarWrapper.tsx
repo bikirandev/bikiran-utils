@@ -9,10 +9,10 @@ type TProps = {
   onSearch: (search: string) => void;
   resetClick?: () => void;
   children: React.ReactNode;
-  placeholder: string;
+  placeholder?: string;
   disabled?: boolean;
   className?: string;
-  outsideClick: boolean;
+  outsideClick?: boolean;
 };
 
 const getStrValue = (filter: Record<string, any>) => {
