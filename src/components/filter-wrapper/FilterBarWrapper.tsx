@@ -79,7 +79,10 @@ const FilterBarWrapper: FC<TProps> = ({
 
   // outside click
   useEffect(() => {
-    if (outsideClick) {
+    // outsideClick defaults to true if undefined
+    const enableOutsideClick = outsideClick !== false;
+
+    if (enableOutsideClick) {
       const handleClickOutside = (e: MouseEvent) => {
         const isSelectClick =
           (e.target as Element)?.closest('[role="combobox"]') ||
@@ -94,12 +97,13 @@ const FilterBarWrapper: FC<TProps> = ({
           setIsFocus(false);
         }
       };
+
       document.addEventListener("mousedown", handleClickOutside);
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
       };
     }
-  }, [ref]);
+  }, [outsideClick, ref]);
 
   const isOpen = isFilterOpen || isFocus;
 
