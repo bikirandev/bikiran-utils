@@ -5,6 +5,7 @@ import AppAccount from "./components/AppAccount";
 import ServiceApp from "./components/ServiceApp";
 import { serviceIcons } from "./icons/Icons";
 import style from './style/Service.module.css'
+import { cn } from "../../lib/utils/cn";
 
 interface ServicesPopupProps {
   auth: {
@@ -75,7 +76,7 @@ const ServicesPopup: FC<ServicesPopupProps> = ({
 
   return (
     <div className={style.popupContainer}>
-      <div className={style.popupWrapper}>
+      <div className={cn(style.popupWrapper, 'custom-scrollbar')}>
         {/* {arr && arr.length === 0 && (
           <div className="size-full flex items-center justify-center">
             <p className="text-primary-700 text-base font-medium">
