@@ -16,7 +16,7 @@ const ServiceApp: React.FC<{
         target="_blank"
         className={style.serviceItem}
       >
-        <div >
+        <div className={style.serviceLogo}>
           <ImageComponent
             src={app?.logo || serviceIcons.iconDefault}
             alt={app?.name}
@@ -26,7 +26,7 @@ const ServiceApp: React.FC<{
             className="w-full h-full object-contain"
           />
         </div>
-        <p >
+        <p className={style.serviceName}>
           {app?.name}
         </p>
       </LinkComponent>

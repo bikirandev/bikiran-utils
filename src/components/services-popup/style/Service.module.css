@@ -1,27 +1,26 @@
-.popupContainer{
-    @apply sm:absolute fixed sm:top-11 top-0 sm:-right-8 -right-0 z-[999] p-2.5 pr-1 bg-[#F7F3F8] shadow-[0px_0px_30px_0px_rgba(19,15,64,0.20)] sm:rounded-30 w-screen sm:w-98 h-screen sm:h-[520px] overflow-hidden
+.popupContainer {
+  @apply sm:absolute fixed sm:top-11 top-0 sm:-right-8 -right-0 z-[999] p-2.5 pr-1 bg-[#F7F3F8] shadow-[0px_0px_30px_0px_rgba(19,15,64,0.20)] sm:rounded-30 w-screen sm:w-98 h-screen sm:h-[520px] overflow-hidden;
 }
-.popupContainer > div {
-    @apply "h-full bg-white rounded-[22px] p-[23px] pt-3 overflow-y-scroll custom-scrollbar cursor-default"
-}
-
-.popupContainer .closeBtn {
-    @apply size-[32px] bg-[rgba(245,3,3,0.10)] rounded-full p-2 ml-3
+.popupWrapper {
+  @apply "h-full bg-white rounded-[22px] p-[23px] pt-3 overflow-y-scroll custom-scrollbar cursor-default";
 }
 
+.closeBtn {
+  @apply size-[32px] bg-[rgba(245,3,3,0.10)] rounded-full p-2 ml-3;
+}
 
 .serviceListContainer {
-    @apply grid grid-cols-3 gap-3 sm:mt-0 mt-5
+  @apply grid grid-cols-3 gap-3 sm:mt-0 mt-5;
 }
 
-.serviceListContainer .serviceItem{
-    @apply w-full h-[100px]  border border-primary-100 bg-white rounded-[18px] px-4 pt-[8px] overflow-hidden flex flex-col justify-center items-center cursor-pointer 
+.serviceItem {
+  @apply w-full h-[100px]  border border-primary-100 bg-white rounded-[18px] px-4 pt-[8px] overflow-hidden flex flex-col justify-center items-center cursor-pointer;
 }
 
-.serviceListContainer .serviceItem > div {
-    @apply size-[35px] sm:size-[50px] mb-[6px]
+.serviceLogo {
+  @apply size-[35px] sm:size-[50px] mb-[6px];
 }
 
-.serviceListContainer .serviceItem p {
-    @apply text-primary-700 text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis
+.serviceName {
+  @apply text-primary-700 text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis;
 }

@@ -75,7 +75,7 @@ const ServicesPopup: FC<ServicesPopupProps> = ({
 
   return (
     <div className={style.popupContainer}>
-      <div >
+      <div className={style.popupWrapper}>
         {/* {arr && arr.length === 0 && (
           <div className="size-full flex items-center justify-center">
             <p className="text-primary-700 text-base font-medium">
