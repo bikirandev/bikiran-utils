@@ -4,7 +4,7 @@ import { FC, useEffect } from "react";
 import AppAccount from "./components/AppAccount";
 import ServiceApp from "./components/ServiceApp";
 import { serviceIcons } from "./icons/Icons";
-// import { cartIcons } from "../cart-menu/icons/cartIcons";
+import style from './style/Service.module.css'
 
 interface ServicesPopupProps {
   auth: {
@@ -31,7 +31,7 @@ const ButtonClose: FC<TBtnProps> = ({ onClick, ImageComponent }) => {
   return (
     <div
       onClick={onClick}
-      className="size-[32px] bg-[rgba(245,3,3,0.10)] rounded-full p-2 ml-3"
+      className={style.closeBtn}
     >
       <ImageComponent
         src={serviceIcons.iconCross}
@@ -74,8 +74,8 @@ const ServicesPopup: FC<ServicesPopupProps> = ({
   const staticAppLogo = auth?.currentUser?.photoUrl || "";
 
   return (
-    <div className="sm:absolute fixed sm:top-11 top-0 sm:-right-8 -right-0 z-[999] p-2.5 pr-1 bg-[#F7F3F8] shadow-[0px_0px_30px_0px_rgba(19,15,64,0.20)] sm:rounded-30 w-screen sm:w-98 h-screen sm:h-[520px] overflow-hidden">
-      <div className="h-full bg-white rounded-[22px] p-[23px] pt-3 overflow-y-scroll custom-scrollbar cursor-default">
+    <div className={style.popupContainer}>
+      <div >
         {/* {arr && arr.length === 0 && (
           <div className="size-full flex items-center justify-center">
             <p className="text-primary-700 text-base font-medium">
@@ -93,7 +93,7 @@ const ServicesPopup: FC<ServicesPopupProps> = ({
             ImageComponent={ImageComponent}
           />
         </div>
-        <div className="grid grid-cols-3 gap-3 sm:mt-0 mt-5">
+        <div className={style.serviceListContainer}>
           <AppAccount
             logo={staticAppLogo}
             LinkComponent={LinkComponent}

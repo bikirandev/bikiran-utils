@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { TApp } from "../ServiceAppType";
 import { serviceIcons } from "../icons/Icons";
+import style from "../style/Service.module.css"
 
 const ServiceApp: React.FC<{
   app: TApp;
@@ -13,9 +14,9 @@ const ServiceApp: React.FC<{
         href={app.website}
         referrerPolicy="no-referrer"
         target="_blank"
-        className="w-full h-[100px]  border border-primary-100 bg-white rounded-[18px] px-4 pt-[8px] overflow-hidden flex flex-col justify-center items-center cursor-pointer "
+        className={style.serviceItem}
       >
-        <div className="size-[35px] sm:size-[50px] mb-1.5">
+        <div >
           <ImageComponent
             src={app?.logo || serviceIcons.iconDefault}
             alt={app?.name}
@@ -25,7 +26,7 @@ const ServiceApp: React.FC<{
             className="w-full h-full object-contain"
           />
         </div>
-        <p className="text-primary-700 text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis">
+        <p >
           {app?.name}
         </p>
       </LinkComponent>
