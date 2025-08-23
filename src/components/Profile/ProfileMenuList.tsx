@@ -116,7 +116,7 @@ const ProfileMenuList: FC<{ LinkComponent: any }> = ({ LinkComponent }) => {
         LinkComponent={LinkComponent}
       />
       <Option
-        fullPath={"user/projects"}
+        path={"user/projects"}
         icon={<ManageProjectIcon />}
         title="Manage Project"
         className={cn("secondOption", style.secondOption)}
