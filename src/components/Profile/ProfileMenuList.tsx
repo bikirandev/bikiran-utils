@@ -4,6 +4,7 @@ import {
   BillingInfoIcon,
   NotificationIcon,
   ContactSupportIcon,
+  ManageProjectIcon,
 } from "./icons";
 import { getAccountUrl, getSupportUrl } from "../../lib/utils/Env";
 import style from "./style/ProfileMenuList.module.css";
@@ -114,6 +115,13 @@ const ProfileMenuList: FC<{ LinkComponent: any }> = ({ LinkComponent }) => {
         className={cn("secondOption", style.secondOption)}
         LinkComponent={LinkComponent}
       />
+      <Option
+        fullPath={"user/projects"}
+        icon={<ManageProjectIcon />}
+        title="Manage Project"
+        className={cn("secondOption", style.secondOption)}
+        LinkComponent={LinkComponent}
+      />
       <OptionBilling LinkComponent={LinkComponent} />
       <Option
         fullPath={getSupportUrl()}
@@ -121,7 +129,7 @@ const ProfileMenuList: FC<{ LinkComponent: any }> = ({ LinkComponent }) => {
         title="Contact Support"
         className={cn("lastOption", style.lastOption)}
         LinkComponent={LinkComponent}
-      />
+      />{" "}
     </div>
   );
 };

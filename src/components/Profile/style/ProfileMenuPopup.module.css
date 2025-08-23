@@ -1,5 +1,5 @@
 .popupContainer {
-  @apply w-full sm:w-100 h-full sm:h-[440px] fixed z-50 sm:absolute right-0 top-0 sm:top-[55px] sm:rounded-30 bg-[#F7F3F8] shadow-[0px_0px_30px_0px_rgba(19,15,64,0.20)];
+  @apply w-full sm:w-100 h-full sm:h-[450px] fixed z-50 sm:absolute right-0 top-0 sm:top-[55px] sm:rounded-30 bg-[#F7F3F8] shadow-[0px_0px_30px_0px_rgba(19,15,64,0.20)];
 }
 
 .closeBtn {
