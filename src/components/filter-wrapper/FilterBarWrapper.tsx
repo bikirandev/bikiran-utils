@@ -46,7 +46,7 @@ const FilterBarWrapper: FC<TProps> = ({
   disabled,
   placeholder = "Search anything...",
   onSearch,
-  resetClick,
+  // resetClick,
   className,
   outsideClick = true,
 }) => {
@@ -123,6 +123,14 @@ const FilterBarWrapper: FC<TProps> = ({
     setIsFocus(false);
   };
 
+  const resetClick = () => {
+    //reset all the fields
+    setFilters(
+      Object.fromEntries(Object.keys(formData).map((key) => [key, ""])) || {}
+    );
+    onSearch("");
+  };
+
   return (
     <div
       className={cn(
@@ -155,7 +163,7 @@ const FilterBarWrapper: FC<TProps> = ({
         <form onSubmit={onSubmit} className={cn(style.form, "form")}>
           {children}
           <div className={style.buttonContainer}>
-            {resetClick !== undefined && (
+            {/* {resetClick !== undefined && (
               <button
                 type="button"
                 onClick={resetClick}
@@ -163,7 +171,14 @@ const FilterBarWrapper: FC<TProps> = ({
               >
                 {iconReset("text-secondary group-hover:text-white")}
               </button>
-            )}
+            )} */}
+            <button
+              type="button"
+              onClick={resetClick}
+              className={cn(style.resetBtn, "resetBtn group")}
+            >
+              {iconReset("text-secondary group-hover:text-white")}
+            </button>
             <button className={cn(style.searchBtn, "searchBtn")}>Search</button>
           </div>
         </form>
