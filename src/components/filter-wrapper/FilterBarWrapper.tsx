@@ -124,11 +124,7 @@ const FilterBarWrapper: FC<TProps> = ({
   };
 
   const resetClick = () => {
-    //reset all the fields
-    setFilters(
-      Object.fromEntries(Object.keys(formData).map((key) => [key, ""])) || {}
-    );
-    onSearch("");
+    window.location.href = window.location.pathname;
   };
 
   return (
