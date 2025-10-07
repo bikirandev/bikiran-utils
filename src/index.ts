@@ -21,6 +21,8 @@ export {
   getTimestamp,
 } from "./lib/utils/date";
 export { default as capitalizeFirstLetter } from "./lib/utils/capitalizeFirstLetter";
+export { default as capitalizeSentence } from "./lib/utils/capitalizeSentence";
+export { default as scrollToSection } from "./lib/utils/scrollToSection";
 export { cn } from "./lib/utils/cn";
 export { default as Copy } from "./lib/utils/Copy";
 export { default as Cookie } from "./lib/utils/Cookie";
