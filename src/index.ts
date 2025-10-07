@@ -13,7 +13,13 @@ export { default as UserInfoComp } from "./components/user-info/UserInfoComp";
 export { default as ProjectSelector } from "./components/project-selector/ProjectSelector";
 export { default as InformationTooltip } from "./components/information-tooltip/InformationTooltip";
 export { default as CopyWrapper } from "./components/copy-wrapper/CopyWrapper";
-export { GetDate, GetTime, timeAgo, timeRemaining } from "./lib/utils/date";
+export {
+  GetDate,
+  GetTime,
+  timeAgo,
+  timeRemaining,
+  getTimestamp,
+} from "./lib/utils/date";
 export { default as capitalizeFirstLetter } from "./lib/utils/capitalizeFirstLetter";
 export { cn } from "./lib/utils/cn";
 export { default as Copy } from "./lib/utils/Copy";
@@ -33,3 +39,13 @@ export {
   isDev,
   getMode,
 } from "./lib/utils/Env";
+export type {
+  TInputChangeEvent,
+  TTextAreaChangeEvent,
+  TMouseEvent,
+  TFormEvent,
+  TKeyboardEvent,
+  TFocusEvent,
+  TDragEvent,
+  TState,
+} from "./lib/types/GlobalType";
