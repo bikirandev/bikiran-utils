@@ -110,3 +110,4 @@ export { default as StatusColor } from "./lib/utils/statusColor";
 
 // React hooks
 export { useOutsideClick } from "./lib/utils/OutsideClick";
+export { showSize } from "./lib/utils/showSize";
