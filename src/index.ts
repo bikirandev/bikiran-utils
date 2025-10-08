@@ -61,6 +61,41 @@ export type {
   TDragEvent,
   TState,
 } from "./lib/types/GlobalType";
+
+// Domain types
+export type {
+  TDomainProperty,
+  TDomainDuration,
+  TDomainInfo,
+} from "./lib/types/domain";
+
+// App types
+export type { TApp } from "./lib/types/app";
+
+// Event types (alternative to GlobalType)
+export type {
+  TInputChangeEvent as TInputChangeEventAlt,
+  TTextAreaChangeEvent as TTextAreaChangeEventAlt,
+  TMouseEvent as TMouseEventAlt,
+  TFormEvent as TFormEventAlt,
+  TKeyboardEvent as TKeyboardEventAlt,
+  TFocusEvent as TFocusEventAlt,
+  TDragEvent as TDragEventAlt,
+  TState as TStateAlt,
+} from "./lib/types/event";
+
+// User types
+export type { TUser } from "./lib/types/user";
+
+// Response types
+export type { TApiResponse, TPagination } from "./lib/types/response";
+
+// Invoice types
+export type {
+  TInvoiceInfo,
+  TAddressBilling,
+  TAddressShipping,
+} from "./lib/types/invoice";
 export { default as countries } from "./lib/utils/country.json";
 export { win, doc, storage } from "./lib/utils/dom";
 export { setLocalStorage, getLocalStorage } from "./lib/utils/storage";
@@ -69,3 +104,9 @@ export {
   mkToken,
   mkStrongPassword,
 } from "./lib/utils/StringOperation";
+
+// UI utilities
+export { default as StatusColor } from "./lib/utils/statusColor";
+
+// React hooks
+export { useOutsideClick } from "./lib/utils/OutsideClick";
