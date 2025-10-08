@@ -71,19 +71,6 @@ export type {
 
 // App types
 export type { TApp } from "./lib/types/app";
-
-// Event types (alternative to GlobalType)
-export type {
-  TInputChangeEvent as TInputChangeEventAlt,
-  TTextAreaChangeEvent as TTextAreaChangeEventAlt,
-  TMouseEvent as TMouseEventAlt,
-  TFormEvent as TFormEventAlt,
-  TKeyboardEvent as TKeyboardEventAlt,
-  TFocusEvent as TFocusEventAlt,
-  TDragEvent as TDragEventAlt,
-  TState as TStateAlt,
-} from "./lib/types/event";
-
 // User types
 export type { TUser } from "./lib/types/user";
 
@@ -94,7 +81,12 @@ export type { TApiResponse, TPagination } from "./lib/types/response";
 export type {
   TInvoiceInfo,
   TAddressBilling,
+  TAddressPayload,
   TAddressShipping,
+  TInvoiceData,
+  TInvoiceProduct,
+  TPaymentIssue,
+  TPaymentOption,
 } from "./lib/types/invoice";
 export { default as countries } from "./lib/utils/country.json";
 export { win, doc, storage } from "./lib/utils/dom";
