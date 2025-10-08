@@ -13,7 +13,6 @@ export { default as UserInfoComp } from "./components/user-info/UserInfoComp";
 export { default as ProjectSelector } from "./components/project-selector/ProjectSelector";
 export { default as InformationTooltip } from "./components/information-tooltip/InformationTooltip";
 export { default as CopyWrapper } from "./components/copy-wrapper/CopyWrapper";
-export { default as StringOperation } from "./lib/utils/StringOperation";
 export {
   GetDate,
   GetTime,
@@ -65,3 +64,8 @@ export type {
 export { default as country } from "./lib/utils/country.json";
 export { win, doc, storage } from "./lib/utils/dom";
 export { setLocalStorage, getLocalStorage } from "./lib/utils/storage";
+export {
+  mkQueryString,
+  mkToken,
+  mkStrongPassword,
+} from "./lib/utils/StringOperation";
