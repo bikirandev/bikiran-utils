@@ -61,7 +61,7 @@ export type {
   TDragEvent,
   TState,
 } from "./lib/types/GlobalType";
-export { default as country } from "./lib/utils/country.json";
+export { default as countries } from "./lib/utils/country.json";
 export { win, doc, storage } from "./lib/utils/dom";
 export { setLocalStorage, getLocalStorage } from "./lib/utils/storage";
 export {
