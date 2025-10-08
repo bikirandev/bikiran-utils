@@ -73,7 +73,8 @@ export type {
 export type { TApp } from "./lib/types/app";
 // User types
 export type { TUser } from "./lib/types/user";
-
+// Asset keys
+export type { TAssets } from "./lib/types/assets";
 // Response types
 export type { TApiResponse, TPagination } from "./lib/types/response";
 
@@ -90,6 +91,7 @@ export type {
 } from "./lib/types/invoice";
 export { default as countries } from "./lib/utils/country.json";
 export { win, doc, storage } from "./lib/utils/dom";
+export { ASSET_KEYS } from "./lib/constants/index";
 export { setLocalStorage, getLocalStorage } from "./lib/utils/storage";
 export {
   mkQueryString,
