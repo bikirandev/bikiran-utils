@@ -4,6 +4,14 @@
   @apply relative inline-flex items-center cursor-pointer;
 }
 
+.wrapper:focus {
+  @apply outline-none;
+}
+
+.disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
 .tooltipContent {
   @apply absolute rounded-[15px] text-sm w-56 px-4 py-3 shadow-md hidden z-10 transition-all duration-300 ease-in-out;
 }
@@ -20,43 +28,29 @@
   @apply block;
 }
 
-/* Alignment positions for tooltipContent */
-.rightAlign {
-  left: calc(100% + 24%);
-  @apply top-1/2 transform -translate-y-1/2;
+/* Portal-based tooltip styles */
+.tooltipPortal {
+  @apply rounded-[15px] text-sm w-56 px-4 py-3 shadow-lg border border-solid transition-all duration-200 ease-in-out;
+  @apply opacity-100 visible relative;
 }
 
-.leftAlign {
-  right: calc(100% + 24%);
-  @apply top-1/2 transform -translate-y-1/2;
+.arrowPortal {
+  @apply absolute w-6 h-3;
 }
 
-.topAlign {
-  bottom: calc(100% + 19%);
-  @apply left-1/2 transform -translate-x-1/2;
-}
-
-.bottomAlign {
-  top: calc(100% + 20%);
-  @apply left-1/2 transform -translate-x-1/2;
-}
-
-/* Arrow positions */
+/* Arrow positions for portal tooltips */
 .arrowRight {
-  left: calc(100% - 26px);
-  @apply top-1/2 transform rotate-90 -translate-x-[100%];
+  @apply left-[-18px] top-1/2 transform -translate-y-1/2 rotate-90;
 }
 
 .arrowLeft {
-  right: calc(100% - 27px);
-
-  @apply top-1/2 transform rotate-90 translate-x-[100%];
+  @apply right-[-18px] top-1/2 transform -translate-y-1/2 rotate-[270deg];
 }
 
 .arrowTop {
-  @apply left-1/2 bottom-[5px] transform -translate-x-1/2 rotate-0;
+  @apply left-1/2 bottom-[-12px] transform -translate-x-1/2 rotate-0;
 }
 
 .arrowBottom {
-  @apply left-4 top-2 transform rotate-180 -translate-x-1/2;
+  @apply left-1/2 top-[-12px] transform -translate-x-1/2 rotate-180;
 }
