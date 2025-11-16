@@ -5,7 +5,7 @@
   @apply cursor-pointer;
 }
 .userImage {
-  @apply size-7 xl:size-10 rounded-full;
+  @apply size-7 xl:size-10 rounded-full !flex-shrink-0;
 }
 .btnRedirect {
   @apply absolute left-1/2 bottom-full mb-3 -translate-x-1/2 z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none transition-all duration-200 opacity-0 scale-95 pointer-events-none;

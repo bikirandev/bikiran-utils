@@ -44,7 +44,11 @@ const TooltipUserInfo: FC<TProps> = ({
   return (
     <div className={cn(style.toolTipParentComp, "parentComp")} ref={tooltipRef}>
       <div
-        onClick={() => setShow(show === user?.id ? null : user?.id)}
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          setShow(show === user?.id ? null : user?.id);
+        }}
         className={cn(style.imageDiv, "imageDiv")}
       >
         {user?.photoUrl ? (
