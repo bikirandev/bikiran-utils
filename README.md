@@ -10,31 +10,19 @@
 
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/bikirandev/bikiran-utils.svg?style=flat-square)](https://github.com/bikirandev/bikiran-utils/commits/main)[![GitHub Last Commit](https://img.shields.io/github/last-commit/bikirandev/bikiran-utils.svg?style=flat-square)](https://github.com/bikirandev/bikiran-utils/commits/main)
 
-
-
 # @bikiran/utils## Overview
-
-
 
 A comprehensive collection of **React components** and **utility functions** specifically developed for modern web applications. This package provides a robust set of UI components, helper functions, and utilities designed to accelerate development while maintaining consistency and performance.A collection of utility components specifically developed for our organization's internal projects. While primarily tailored to our needs, others may find some components useful.
 
-
-
 ## 🌟 Overview⚠️ **Important Note**: This package was optimized for our specific use cases and may not work as expected in all projects. Use with caution.
 
-
-
 A collection of utility components specifically developed for our organization's internal projects. While primarily tailored to our needs, others may find some components useful.## Dependencies
-
-
 
 ⚠️ **Important Note**: This package was optimized for our specific use cases and may not work as expected in all projects. Use with caution.- `clsx`
 
 - `tailwind-merge`
 
 ## ✨ Key Features- `Next.js`
-
-
 
 - **🎨 UI Components**: Pre-built React components with consistent styling## Peer Dependencies
 
@@ -50,17 +38,13 @@ A collection of utility components specifically developed for our organization's
 
 - **🔧 Configurable**: Highly customizable with sensible defaults- `dayjs` (^1.11.0) - Used for date/time utilities
 
-
-
 ## 📦 What's IncludedMake sure to install these peer dependencies in your project:
-
-
 
 ### 🧩 UI Components (15)```bash
 
 - **Navigation & Layout**: Custom Sidebar, Header components, Project Selectornpm install react react-dom dayjs
 
-- **User Interface**: Profile Management, User Info, Tooltip components  ```
+- **User Interface**: Profile Management, User Info, Tooltip components ```
 
 - **Interactive Elements**: Button Wrapper, Currency Selector, Filter Wrapper
 
@@ -104,15 +88,9 @@ A collection of utility components specifically developed for our organization's
 
 - `Next.js` - React framework (recommended)12. [UserInfoComp](https://github.com/bikirandev/bikiran-utils/wiki/13.-UserInfoComp)
 
-
-
 ### Peer Dependencies## Getting Started
 
-
-
 The following packages are required to be installed in your project:### Installation
-
-
 
 - `react` (^19.1.0) - React libraryInstall the package via **npm**:
 
@@ -124,9 +102,7 @@ npm install @bikiran/utils
 
 **Install peer dependencies:**```
 
-
-
-```bashOr via **yarn**:
+```````bashOr via **yarn**:
 
 npm install react react-dom dayjs
 
@@ -224,15 +200,11 @@ Or via **yarn**:      },
 
 yarn add @bikiran/utils}
 
-``````
-
-
+```````
 
 Or via **pnpm**:This setup allows all components—like `<ButtonWrapper>` and `<CurrencySelector>`—to **automatically inherit your color scheme** across different shades.
 
-
-
-```bash### Basic Usage
+````bash### Basic Usage
 
 pnpm add @bikiran/utils
 
@@ -334,59 +306,53 @@ module.exports = {
 
 ```   git push origin my-feature-name
 
-   ```
+````
 
 This setup allows all components—like `<ButtonWrapper>` and `<CurrencySelector>`—to **automatically inherit your color scheme** across different shades.7. **Open a Pull Request** with a clear title and description.
 
-
-
 ### 🔧 Basic Usage### 🧪 Before submitting:
-
-
 
 1. **Import Components**- Run and test the component in your app.
 
 - Check for console errors or style breakages.
 
-   ```tsx- Use consistent naming and follow the existing code style.
+  ````tsx- Use consistent naming and follow the existing code style.
 
-   import { 
+  import {
 
-     ButtonWrapper, Thanks for your contribution! ❤️
+    ButtonWrapper, Thanks for your contribution! ❤️
 
-     PageLoading, 
+    PageLoading,
 
-     UserInfoComp,## License
+    UserInfoComp,## License
 
-     CopyWrapper,
+    CopyWrapper,
 
-     Pagination MIT License
+    Pagination MIT License
 
-   } from "@bikiran/utils";
+  } from "@bikiran/utils";
 
-   ```## Author
-
-
+  ```## Author
+  ````
 
 2. **Import Utility Functions**Developed by [Bikiran](https://bikiran.com/)
 
-
-
    ```tsx
-   import { 
-     GetDate, 
-     GetTime, 
+   import {
+     GetDate,
+     GetTime,
      timeAgo,
-     capitalizeFirstLetter 
+     capitalizeFirstLetter,
    } from "@bikiran/utils";
    ```
 
 3. **Use with Your Theme**
+
    ```tsx
    // Components automatically adopt your project's colors
-   <ButtonWrapper variant="primary">Click Me</ButtonWrapper>
-   
-   // Utility functions work independently  
+   <ButtonWrapper variant="primary">Click Me</ButtonWrapper>;
+
+   // Utility functions work independently
    const formattedDate = GetDate(Date.now() / 1000, "DD MMM YYYY");
    ```
 
@@ -411,8 +377,8 @@ To override default styles:
 
 ```tsx
 // Profile with user information
-<UserInfoComp 
-  name="John Doe" 
+<UserInfoComp
+  name="John Doe"
   email="john@example.com"
   photoUrl="https://example.com/photo.jpg"
   ImageComponent={Image}
@@ -423,12 +389,12 @@ To override default styles:
   Click to copy
 </CopyWrapper>
 
-// Loading states  
+// Loading states
 {loading && <PageLoading />}
 {processing && <LoadingComp />}
 
 // Navigation
-<Pagination 
+<Pagination
   currentPage={1}
   totalPages={10}
   onPageChange={(page) => setCurrentPage(page)}
@@ -486,7 +452,7 @@ const capitalized = capitalizeFirstLetter("hello world"); // "Hello world"
 // Copy functionality (React hook)
 const MyCopyComponent = () => {
   const { copy, isCopied } = Copy();
-  
+
   return (
     <button onClick={() => copy("Text to copy")}>
       {isCopied ? "Copied!" : "Copy Text"}
@@ -504,7 +470,7 @@ import { cn } from "@bikiran/utils";
 const buttonClasses = cn(
   "px-4 py-2 rounded",
   isActive && "bg-blue-500",
-  isDisabled && "opacity-50 cursor-not-allowed"
+  isDisabled && "opacity-50 cursor-not-allowed",
 );
 ```
 
@@ -514,6 +480,7 @@ For complete documentation and usage examples, please see:
 [**📚 Components Documentation**](https://github.com/bikirandev/bikiran-utils/wiki/Home)
 
 ### 🔗 Quick Links
+
 - [Installation Guide](https://github.com/bikirandev/bikiran-utils/wiki/Installation)
 - [Component API Reference](https://github.com/bikirandev/bikiran-utils/wiki/Components)
 - [Utility Functions](https://github.com/bikirandev/bikiran-utils/wiki/Utilities)
@@ -543,7 +510,7 @@ We welcome contributions! To contribute to the package:
 ### 🧪 Before Submitting
 
 - ✅ Run tests and ensure all pass
-- ✅ Test components in a real application  
+- ✅ Test components in a real application
 - ✅ Check for console errors or style conflicts
 - ✅ Follow existing code style and naming conventions
 - ✅ Update documentation for new features
@@ -580,3 +547,79 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 [⭐ Star this repo](https://github.com/bikirandev/bikiran-utils) • [🐛 Report Bug](https://github.com/bikirandev/bikiran-utils/issues) • [💡 Request Feature](https://github.com/bikirandev/bikiran-utils/issues/new)
 
 </div>
+
+---
+
+## 🏢 About Bikiran
+
+**[Bikiran](https://bikiran.com/)** is a software development and cloud infrastructure company founded in 2012, headquartered in Khulna, Bangladesh. With 15,000+ clients and over a decade of experience, Bikiran builds and operates a suite of products spanning domain services, cloud hosting, app deployment, workflow automation, and developer tools.
+
+### 🌐 Websites
+
+| Product             | Website                                                 |
+| ------------------- | ------------------------------------------------------- |
+| **Bikiran**         | [bikiran.com](https://bikiran.com/)                     |
+| **Edusoft**         | [edusoft.com.bd](https://www.edusoft.com.bd/)           |
+| **n8n Clouds**      | [n8nclouds.com](https://n8nclouds.com/)                 |
+| **Timestamp Zone**  | [timestamp.zone](https://www.timestamp.zone/)           |
+| **PDFpi**           | [pdfpi.bikiran.com](https://pdfpi.bikiran.com/)         |
+| **Bikiran Blog**    | [blog.bikiran.com](https://blog.bikiran.com/)           |
+| **Bikiran Support** | [support.bikiran.com](https://support.bikiran.com/)     |
+| **Probackup**       | [probackup.bikiran.com](https://probackup.bikiran.com/) |
+
+### 🛠️ Services
+
+| Service         | Link                                                                             |
+| --------------- | -------------------------------------------------------------------------------- |
+| **Domain**      | [bikiran.com/domain](https://www.bikiran.com/domain)                             |
+| **Hosting**     | [bikiran.com/services/hosting/web](https://www.bikiran.com/services/hosting/web) |
+| **Email & SMS** | —                                                                                |
+
+### 📦 npm Packages
+
+| Package                  | npm                                                                      |
+| ------------------------ | ------------------------------------------------------------------------ |
+| **Chronopicks**          | [@bikiran/chronopick](https://www.npmjs.com/package/@bikiran/chronopick) |
+| **Rich Editor**          | [@bikiran/editor](https://www.npmjs.com/package/@bikiran/editor)         |
+| **Dropdown**             | [bik-dropdown](https://www.npmjs.com/package/bik-dropdown)               |
+| **Button**               | [@bikiran/button](https://www.npmjs.com/package/@bikiran/button)         |
+| **Electron Boilerplate** | [create-edx-app](https://www.npmjs.com/package/create-edx-app)           |
+
+### 📦 NuGet Packages
+
+| Package            | NuGet                                                                         |
+| ------------------ | ----------------------------------------------------------------------------- |
+| **Bkash**          | [Bikiran.Payment.Bkash](https://www.nuget.org/packages/Bikiran.Payment.Bkash) |
+| **Bikiran Engine** | [Bikiran.Engine](https://www.nuget.org/packages/Bikiran.Engine)               |
+
+### 🐙 Open Source
+
+| Project            | GitHub                                                                    |
+| ------------------ | ------------------------------------------------------------------------- |
+| **PDFpi**          | [bikirandev/pdfpi](https://github.com/bikirandev/pdfpi)                   |
+| **Bikiran Engine** | [bikirandev/Bikiran.Engine](https://github.com/bikirandev/Bikiran.Engine) |
+| **Drive CLI**      | [bikirandev/DriveCLI](https://github.com/bikirandev/DriveCLI)             |
+
+### 🐳 Docker Tools
+
+| Tool        | GitHub                                                                    |
+| ----------- | ------------------------------------------------------------------------- |
+| **Pgsql**   | [bikirandev/docker-pgsql](https://github.com/bikirandev/docker-pgsql)     |
+| **n8n**     | [bikirandev/docker-n8n](https://github.com/bikirandev/docker-n8n)         |
+| **Pgadmin** | [bikirandev/docker-pgadmin](https://github.com/bikirandev/docker-pgadmin) |
+
+### 🔗 Social Media
+
+**Bikiran**
+
+| Platform | Link                                                                         |
+| -------- | ---------------------------------------------------------------------------- |
+| LinkedIn | [linkedin.com/company/bikiran12](https://www.linkedin.com/company/bikiran12) |
+| Facebook | [facebook.com/bikiran12](https://www.facebook.com/bikiran12)                 |
+| YouTube  | [youtube.com/@bikiranofficial](https://www.youtube.com/@bikiranofficial)     |
+
+**n8n Clouds**
+
+| Platform | Link                                                         |
+| -------- | ------------------------------------------------------------ |
+| Facebook | [facebook.com/n8nclouds](https://www.facebook.com/n8nclouds) |
