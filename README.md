@@ -532,7 +532,7 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
-**Developed by [Kumar Bishojit Paul](https://bikiran.com/)**
+**Developed by [Bikiran](https://bikiran.com/)**
 
 - 🌐 Website: [bikiran.com](https://bikiran.com/)
 - 📧 Email: [Contact](https://bikiran.com/contact)
@@ -554,72 +554,33 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 
 **[Bikiran](https://bikiran.com/)** is a software development and cloud infrastructure company founded in 2012, headquartered in Khulna, Bangladesh. With 15,000+ clients and over a decade of experience, Bikiran builds and operates a suite of products spanning domain services, cloud hosting, app deployment, workflow automation, and developer tools.
 
-### 🌐 Websites
-
-| Product             | Website                                                 |
-| ------------------- | ------------------------------------------------------- |
-| **Bikiran**         | [bikiran.com](https://bikiran.com/)                     |
-| **Edusoft**         | [edusoft.com.bd](https://www.edusoft.com.bd/)           |
-| **n8n Clouds**      | [n8nclouds.com](https://n8nclouds.com/)                 |
-| **Timestamp Zone**  | [timestamp.zone](https://www.timestamp.zone/)           |
-| **PDFpi**           | [pdfpi.bikiran.com](https://pdfpi.bikiran.com/)         |
-| **Bikiran Blog**    | [blog.bikiran.com](https://blog.bikiran.com/)           |
-| **Bikiran Support** | [support.bikiran.com](https://support.bikiran.com/)     |
-| **Probackup**       | [probackup.bikiran.com](https://probackup.bikiran.com/) |
-
-### 🛠️ Services
-
-| Service         | Link                                                                             |
-| --------------- | -------------------------------------------------------------------------------- |
-| **Domain**      | [bikiran.com/domain](https://www.bikiran.com/domain)                             |
-| **Hosting**     | [bikiran.com/services/hosting/web](https://www.bikiran.com/services/hosting/web) |
-| **Email & SMS** | —                                                                                |
-
-### 📦 npm Packages
-
-| Package                  | npm                                                                      |
-| ------------------------ | ------------------------------------------------------------------------ |
-| **Chronopicks**          | [@bikiran/chronopick](https://www.npmjs.com/package/@bikiran/chronopick) |
-| **Rich Editor**          | [@bikiran/editor](https://www.npmjs.com/package/@bikiran/editor)         |
-| **Dropdown**             | [bik-dropdown](https://www.npmjs.com/package/bik-dropdown)               |
-| **Button**               | [@bikiran/button](https://www.npmjs.com/package/@bikiran/button)         |
-| **Electron Boilerplate** | [create-edx-app](https://www.npmjs.com/package/create-edx-app)           |
-
-### 📦 NuGet Packages
-
-| Package            | NuGet                                                                         |
-| ------------------ | ----------------------------------------------------------------------------- |
-| **Bkash**          | [Bikiran.Payment.Bkash](https://www.nuget.org/packages/Bikiran.Payment.Bkash) |
-| **Bikiran Engine** | [Bikiran.Engine](https://www.nuget.org/packages/Bikiran.Engine)               |
-
-### 🐙 Open Source
-
-| Project            | GitHub                                                                    |
-| ------------------ | ------------------------------------------------------------------------- |
-| **PDFpi**          | [bikirandev/pdfpi](https://github.com/bikirandev/pdfpi)                   |
-| **Bikiran Engine** | [bikirandev/Bikiran.Engine](https://github.com/bikirandev/Bikiran.Engine) |
-| **Drive CLI**      | [bikirandev/DriveCLI](https://github.com/bikirandev/DriveCLI)             |
-
-### 🐳 Docker Tools
-
-| Tool        | GitHub                                                                    |
-| ----------- | ------------------------------------------------------------------------- |
-| **Pgsql**   | [bikirandev/docker-pgsql](https://github.com/bikirandev/docker-pgsql)     |
-| **n8n**     | [bikirandev/docker-n8n](https://github.com/bikirandev/docker-n8n)         |
-| **Pgadmin** | [bikirandev/docker-pgadmin](https://github.com/bikirandev/docker-pgadmin) |
-
-### 🔗 Social Media
-
-**Bikiran**
-
-| Platform | Link                                                                         |
-| -------- | ---------------------------------------------------------------------------- |
-| LinkedIn | [linkedin.com/company/bikiran12](https://www.linkedin.com/company/bikiran12) |
-| Facebook | [facebook.com/bikiran12](https://www.facebook.com/bikiran12)                 |
-| YouTube  | [youtube.com/@bikiranofficial](https://www.youtube.com/@bikiranofficial)     |
-
-**n8n Clouds**
-
-| Platform | Link                                                         |
-| -------- | ------------------------------------------------------------ |
-| Facebook | [facebook.com/n8nclouds](https://www.facebook.com/n8nclouds) |
+| SL  | Topic        | Product                                                              | Description                                             |
+| --- | ------------ | -------------------------------------------------------------------- | ------------------------------------------------------- |
+| 1   | Website      | [Bikiran](https://bikiran.com/)                                      | Main platform — Domain, hosting & cloud services        |
+| 2   | Website      | [Edusoft](https://www.edusoft.com.bd/)                               | Education management software for institutions          |
+| 3   | Website      | [n8n Clouds](https://n8nclouds.com/)                                 | Managed n8n workflow automation hosting                 |
+| 4   | Website      | [Timestamp Zone](https://www.timestamp.zone/)                        | Unix timestamp converter & timezone tool                |
+| 5   | Website      | [PDFpi](https://pdfpi.bikiran.com/)                                  | Online PDF processing & manipulation tool               |
+| 6   | Website      | [Blog](https://blog.bikiran.com/)                                    | Technical articles, guides & tutorials                  |
+| 7   | Website      | [Support](https://support.bikiran.com/)                              | 24/7 customer support portal                            |
+| 8   | Website      | [Probackup](https://probackup.bikiran.com/)                          | Automated database backup for SQL, PostgreSQL & MongoDB |
+| 9   | Service      | [Domain](https://www.bikiran.com/domain)                             | Domain registration, transfer & DNS management          |
+| 10  | Service      | [Hosting](https://www.bikiran.com/services/hosting/web)              | Web, app & email hosting on NVMe SSD                    |
+| 11  | Service      | Email & SMS                                                          | Bulk email & SMS notification service                   |
+| 12  | npm          | [Chronopicks](https://www.npmjs.com/package/@bikiran/chronopick)     | Date & time picker React component                      |
+| 13  | npm          | [Rich Editor](https://www.npmjs.com/package/@bikiran/editor)         | WYSIWYG rich text editor for React                      |
+| 14  | npm          | [Dropdown](https://www.npmjs.com/package/bik-dropdown)               | Project selector dropdown component                     |
+| 15  | npm          | [Button](https://www.npmjs.com/package/@bikiran/button)              | Reusable React button component library                 |
+| 16  | npm          | [Electron Boilerplate](https://www.npmjs.com/package/create-edx-app) | CLI to scaffold Electron.js project templates           |
+| 17  | NuGet        | [Bkash](https://www.nuget.org/packages/Bikiran.Payment.Bkash)        | bKash payment gateway integration for .NET              |
+| 18  | NuGet        | [Bikiran Engine](https://www.nuget.org/packages/Bikiran.Engine)      | Core .NET engine library for Bikiran services           |
+| 19  | Open Source  | [PDFpi](https://github.com/bikirandev/pdfpi)                         | PDF processing tool — open source                       |
+| 20  | Open Source  | [Bikiran Engine](https://github.com/bikirandev/Bikiran.Engine)       | Core .NET engine — open source                          |
+| 21  | Open Source  | [Drive CLI](https://github.com/bikirandev/DriveCLI)                  | CLI tool to manage Google Drive from terminal           |
+| 22  | Docker       | [Pgsql](https://github.com/bikirandev/docker-pgsql)                  | Docker setup for PostgreSQL                             |
+| 23  | Docker       | [n8n](https://github.com/bikirandev/docker-n8n)                      | Docker setup for n8n automation                         |
+| 24  | Docker       | [Pgadmin](https://github.com/bikirandev/docker-pgadmin)              | Docker setup for pgAdmin                                |
+| 25  | Social Media | [LinkedIn](https://www.linkedin.com/company/bikiran12)               | Bikiran on LinkedIn                                     |
+| 26  | Social Media | [Facebook](https://www.facebook.com/bikiran12)                       | Bikiran on Facebook                                     |
+| 27  | Social Media | [YouTube](https://www.youtube.com/@bikiranofficial)                  | Bikiran on YouTube                                      |
+| 28  | Social Media | [FB n8nClouds](https://www.facebook.com/n8nclouds)                   | n8n Clouds on Facebook                                  |
